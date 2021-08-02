@@ -1,0 +1,3143 @@
+﻿from time import *
+from xes.ext import *
+from random import *
+from os import *
+from sys import*
+from math import*
+from string import*
+import platform
+import requests
+#-----------------------------------導庫-------------------------------
+key=None
+jsb={}               #记事本
+jsbr={}              #记事本回收站
+jsbrc={}             #记事本内容找回
+ds_1=0
+ds_2=0
+ds_4=0
+ds_5=0
+wfp=1.5
+e=2.0
+obj=0
+classic=0
+jsb=["使用Pan TSE的記事本記錄代辦選項"]
+ID=randint(10000,99999999)
+def error(err):
+    print("\033[44m")
+    qing()
+    for i in range(0,100,5):
+        sleep(0.46)
+        qing()
+        print(":(")
+        print("你（妳）的電腦遇到問題，需要重新啓動。")
+        print("我們只收集某些錯誤信息，然後爲你（妳）重新啓動。(完成"+str(i)+"%)")
+        print("如果你（妳）想了解更多信息，則可以稍後在線搜索此錯誤:"+err)
+    print("請按運行鍵繼續...")
+
+def qing():
+    system("clear")
+
+def b(poem):
+    for char in poem:
+        sleep(0.1)
+        print(char, end='', flush=True)
+    print()
+
+def kfz():
+    while 1:
+        jsb={}               #记事本
+    jsbr={}              #记事本回收站
+    jsbrc={}             #记事本内容找回
+        global llqjh
+        print("\033[0m開始                        SYSTEM")
+        print("\033[95m1.命令提示符    \033[93m2.計算機      \033[92m3.記事本     \033[90m4.關機     \033[91m5.手動Ghost")
+        print("\033[93mD.管理磁盤  \033[91mK.Pan激活工具(謹慎使用)")
+        print("\033[0m"+strftime("%H:%M",localtime()))
+        kfz=input("\033[0m請輸入應用序號:")
+        qing()
+        if kfz=="1":
+            print("\033[0mHOTM Pan[開發者版本3902]")
+            print("版權所有 (c) 2020 HOTM Workshop。保留所有權利。")
+            while 1:
+                print("C:\\local>",end="")
+                dos=input()
+                if dos=="help":
+                    print("有關某個命令的詳細信息，請鍵入help命令名")
+                    print("break    退出cmd程序，這與exit是壹樣的")
+                    print("clear    清屏")
+                    print("cmd      打開壹個新的Pan命令解釋窗口")
+                    print("exit     退出cmd程序")
+                    print("help     提供Pan的所有命令代碼信息")
+                    print("panver   查看Pan的版本")
+                    print("bsod     自動藍屏")
+                    print("shutdown 關機")
+                elif dos=="clear":
+                    qing()
+                elif dos=="cmd":
+                    print("HOTM Pan[開發者版本3902]")
+                    print("版權所有 (c) 2020 HOTM Workshop。保留所有權利。")
+                elif dos=="break" or dos=="exit":
+                    break
+                elif dos=="panver":
+                    print("HOTM Pan[版本3.65.3902]")
+                elif dos=="bsod" or dos=="shutdown":
+                    print("請稍等\n正在退出CMD")
+                    break
+                else:
+                    print("\""+dos+"\"不是壹個命令代碼，請檢查拼寫。")
+            if dos=="bsod":
+                qing()
+                error("Cannot perform normal shutdown")
+                break
+            elif dos=="shutdown":
+                for i in range(5):
+                    print("\033[0mo 正在關機")
+                    sleep(0.2)
+                    system("clear")
+                    print("\033[94mo 正在關機")
+                    sleep(0.2)
+                    system("clear")
+                sleep(1)
+                qing()
+                print("\033[92m現在你（妳）可以安全地關閉你（妳）的電腦了\033[8m")
+                break
+        elif kfz=="K":
+            b("您當前使用的系統:Pan PE")
+            b("您要激活的系統:Pan TSE 2.1")
+            if llqjh==0:
+                msq="未激活"
+            else:
+                msq="已激活"
+            b("激活狀態:"+msq)
+            b("請確認無誤後按小寫y鍵繼續激活(途中可能會卸載壹些軟件，這是系統Bug，請想好後再繼續)")
+            msq=input()
+            if msq=="y":
+                print("正在激活Pan...")
+                sleep(3)
+                msq="已激活"
+                key=str(randint(100,999))+"-"+str(randint(1000000,9999999))
+                ds_3=0
+                llqjh=1
+                ds_2=0
+                ds_4=0
+                ds_5=0
+                sleep(5)
+                print("Pan TSE 2.1\n計算機已永久激活")
+            else:
+                print("好的，您取消了激活，如果手殘按錯了可以回到開始菜單重新激活。")
+        elif kfz=="2":
+            print("\033[0mSystem(C:)\n6.18GB可用/8.00GB")
+            print("\033[0m備份Ghost(E:)\n"+str(e-0.1)+"GB可用/"+str(e)+"GB")
+            print("\033[90mCD-ROM驅動器(D:)\n不可用\033[0m")
+            System32=input("輸入文件名，(如C:):")
+            qing()
+            if System32=="C:":
+                print("名稱    類型           修改日期               大小")
+                print("Start   快捷方式(.lnk) 2020年6月14日 13:23    1KB")
+                print("Program 文件夾         2021年1月27日 17:10    119.9MB")
+                print("local   文件夾         2020年6月14日 13:25    1.7GB")
+                print(name+"   文件夾         2020年12月7日 17:54    100MB")
+                System32=input("輸入文件名，(如C:):")
+                qing()
+                if System32=="local":
+                    print("名稱    類型            修改日期               大小")
+                    print("Start   軟件(.exe)      2020年6月14日 13:23    1.3GB")
+                    print("Touch   擴展驅動(.dll)  2020年6月14日 13:26    153MB")
+                    print("program 軟件(.exe)      2020年6月14日 13:27    245MB")
+                    print("System  配置文件(.ini)  2020年6月14日 13:30    1MB")
+                    print("Startup 軟件(.exe)      2020年6月14日 13:31    992KB")
+                elif System32=="Program":
+                    print("名稱    類型           修改日期               大小")
+                    print("program 軟件(.exe)     2020年7月19日 13:23    117MB")
+                    print(".drives 擴展驅動(.dll) 2021年1月27日 17:10    2.9MB")
+                    print(".drives 軟件服務(.pnc) 2021年1月27日 17:14    1KB")
+                    print("Taiwan  語言包(.bin)   2021年1月27日 17:15    1KB")
+                    System32=input("輸入文件名，(如C:):")
+                    qing()
+                    if System32==".drives":
+                        b("該服務包括:第三方程序啓動服務(已啓用)")
+                    elif System32=="Taiwan":
+                        sleep(0.2)
+                        print("This program cannot run in x86 mode.")
+                    else:
+                        print("該文件不存在或不可更改")
+                elif System32==name:
+                    print("名稱    類型            修改日期               大小")
+                    print("user    擴展驅動(.dll)  2020年12月7日 17:56    1KB")
+                    print("data    備份文件(.gho)  2020年12月7日 17:57    1KB")
+                else:
+                    print("該文件不存在")
+            elif System32=="E:":
+                print("名稱    類型             修改日期               大小")
+                print("Ghost   擴展驅動(.dll)   2020年7月18日  19:38    53MB")
+                print("PanTSE2 系統安裝包(.wim) 2020年10月1日  18:59    46.5MB")
+                print("readme  文本(.txt)       2020年10月1日  19:02    407.6KB")
+                print("TSE21   鏡像(.iso)       2020年11月26日 15:37    904KB")
+                print("develop 命令文件(.bat)   2020年11月17日 11:55    1KB")
+                print("data    配置文件(.ini)   2020年11月18日 0:02     1KB")
+                System32=input("輸入文件名，(如C:):")
+                qing()
+                if System32=="readme":
+                    b("本磁盤是重置系統備份的磁盤\n")
+                    b("【請勿重新格式化】\n【請勿刪除文件】\n【請勿添加文件】\n")
+                    b("否則，系統將永久崩潰，切記~~~~~~")
+                elif System32=="develop":
+                    print("您要如何查看該文件?")
+                    System32=input("A.16位的CMD B.32位的CMD C.記事本")
+                    qing()
+                    if System32=="A":
+                        print("C:\\local>taskkill /f /im program.exe")
+                        print("Succeed!")
+                        sleep(0.1)
+                        print("C:\\local>taskkill /f /im Startup.exe")
+                        print("Succeed!")
+                        sleep(0.1)
+                        print("E:\\>cd E:\\&cd .>data.ini")
+                        print("Succeed to add a new ini file called \"data\"!")
+                        sleep(2)
+                        print("-------------------------")
+                        print("Succeed in 2.2 seconds with return value 12")
+                        print("Press anykey to continue...")
+                        input()
+                    elif System32=="B":
+                        print("C:\\local>taskkill /f /im program.exe")
+                        print("Failed!")
+                        sleep(2)
+                        print("-------------------------")
+                        print("Error:this program(or command) cannot support with 32-bit")
+                        print("Succeed in 2 seconds with return value 395768")
+                        print("Press anykey to continue...")
+                    elif System32=="C":
+                        b("taskkill /f /im program.exe\n")
+                        b("taskkill /f /im Startup.exe\n")
+                        b("cd E:\\&cd .>develop.txt")
+                    else:
+                        print("該文件不能以程序"+System32+"來打開")
+                else:
+                    print("該文件不可預覽")
+            elif System32=="D:":
+                print("該磁盤裏沒有可用的安裝文件(setup.exe或者oemsetup.inf)，也沒有可查看的文件。")
+            else:
+                print("該文件不存在")
+        elif kfz=="3":
+            while 1:
+                qing()
+                print("\033[?25h\033[32m歡迎使用記事本!\033[34m輸入已有記事本打開,\033[33m輸入新名字即可新建,\033[31m輸入exit退出,\033[35m輸入recycle查看回收站")
+                print("\033[33m已有記事本:\033[0m")
+                for i in jsb:
+                    print(i)
+                j=input("\033[36m輸入記事本名:")
+                qing()
+                if j.lower()=='exit':
+                    print("\033[?25l")
+                    break
+                elif j.lower()=='recovery':
+                    print("\033[36m| Pan Recovered files\033[32m")
+                    for i in jsbrc:
+                        print("\033[32m記事本名稱 : "+str(i))
+                        print("\033[33m記事本內容 : 見下行\n"+str(jsbrc[i]))
+                        print()
+                    input("\033[36m（recovery內容無法恢複，只支持臨時查看，文章中\033[34m\\n\033[36m代表換行；回車鍵返回。）")  
+                elif j.lower()=='recycle':
+                    print("\033[36m| 記事本回收站\033[32m")
+                    for i in jsbr:
+                        print(i)
+                    cao = input("\033[36m輸入要執行的操作(1=恢複 2=徹底刪除 3=全部徹底刪除 4=全部恢複)：")
+                    if cao != '3' and cao != '4':
+                        jj = input("\033[33m輸入要操作的記事本名：")
+                    elif cao == '1':
+                        if jj in jsbr:
+                            jsb[jj] = jsbr[jj]
+                            del jsbr[jj]
+                            print("\033[32m恢複成功！")
+                        else:
+                            print("\033[31m記事本名輸入錯誤")
+                    elif cao == '2':
+                        if jj in jsbr:
+                            jsbrc[jj] = jsbr[jj]
+                            del jsbr[jj]
+                            print("\033[32m徹底刪除成功！")
+                        else:
+                            print("\033[31m記事本名輸入錯誤")
+                    elif cao == '3':
+                        for i in jsbr:
+                            jsbrc[i] = jsbr[i]
+                        del jsbr
+                        jsbr = {}
+                        print("\033[36m正在抹掉......")
+                        sleep(0.5)
+                        print("\033[32m刪除成功！")
+                    elif cao == '4':
+                        for i in jsbr:
+                            jsb[i] = jsbr[i]
+                        del jsbr
+                        jsbr = {}
+                        print("\033[36m正在恢複......")
+                        sleep(0.5)
+                        print("\033[32m恢複成功！")
+                    else:
+                        print("\033[31m無效操作")
+                    input("\033[35mEnter鍵返回")
+                elif j in jsb:
+                    print(jsb[j])
+                    print("\033[33m1.更改 \033[31m2.刪除 \033[34m3.重命名 \033[31m其他退出")
+                    c=input("\033[0m請選擇：")
+                    if c=='1':
+                        qing()
+                        nr = ''
+                        print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                        while 1:
+                            a = input()
+                            if a == 'esc':
+                                break
+                            elif a == 'clear':
+                                nr = ''
+                                qing()
+                                print("\033[32m輸入更改後的內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                                continue
+                            elif '<fontcolor='in a:
+                                if len(a) < 12:
+                                    print("\033[31m語法錯誤：<fontcolor=  value error:is no color input\033[33m")
+                                    continue
+                                if a[11] == '紅':
+                                    nr = nr + '\033[31m'
+                                elif a[11] == '綠':
+                                    nr = nr + '\033[32m'
+                                elif a[11] == '黃':
+                                    nr = nr + '\033[33m'
+                                elif a[11] == '藍':
+                                    nr = nr + '\033[34m'
+                                elif a[11] == '紫':
+                                    nr = nr + '\033[35m'
+                                elif a[11] == '青':
+                                    nr = nr + '\033[36m'
+                                text = a + '\n'
+                                nr = nr + text
+                            else:
+                                text = a + "\n"
+                            nr = nr + text
+                            jsb[j]=nr
+                            print("\033[32m更改成功!")
+                    elif c=='2':
+                        jsbr[j] = jsb[j]
+                        del jsb[j]
+                        print("\033[32m刪除成功，可在回收站查看!")
+                    elif c=='3':
+                        new=input("\033[36m輸入新記事本名:")
+                        if new=='exit':
+                            print("\033[31m不可使用關鍵詞exit命名記事本!")
+                            sleep(2)
+                            continue
+                            jsb[new] = jsb[j]
+                            del jsb[j]
+                            print("\033[32m更改成功!")
+                    else:
+                        continue
+                    sleep(2)
+                else:
+                    nr = ''
+                    print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                    while True:
+                        a = input()
+                        if a == 'esc':
+                            break
+                        elif a == 'clear':
+                            nr = ''
+                            qing()
+                            print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                            continue
+                        elif '<fontcolor='in a:
+                            if len(a) < 12:
+                                print("\033[31m語法錯誤：<fontcolor=  value error:is no color input\033[33m")
+                                continue
+                            if a[11] == '紅':
+                                nr = nr + '\033[31m'
+                            elif a[11] == '綠':
+                                nr = nr + '\033[32m'
+                            elif a[11] == '黃':
+                                nr = nr + '\033[33m'
+                            elif a[11] == '藍':
+                                nr = nr + '\033[34m'
+                            elif a[11] == '紫':
+                                nr = nr + '\033[35m'
+                            elif a[11] == '青':
+                                nr = nr + '\033[36m'
+                            text = a + '\n'
+                            nr = nr + text
+                        else:
+                            text = a + "\n"
+                            nr = nr + text
+                        jsb[j]=nr
+                        print("新建成功!")
+                        sleep(2)
+                print("\033[?25l")
+        elif kfz=="4":
+            for i in range(5):
+                print("\033[0mo 正在關機")
+                sleep(0.2)
+                system("clear")
+                print("\033[94mo 正在關機")
+                sleep(0.2)
+                system("clear")
+            sleep(1)
+            qing()
+            print("\033[92m現在你（妳）可以安全地關閉你（妳）的電腦了\033[8m")
+            break
+        elif kfz=="5":
+            setup()
+        elif kfz=="D":
+            print("\033[0mVirtualDisk(11.6GB)")
+            print("\033[90mSystem(C: 8.00GB) \033[94m備份GHOST(E: "+str(e)+"GB) 未分配("+str(wfp)+"GB)  \033[90mEFI恢複分區(0.1GB)")
+            print("\033[0m光盤(0Byte)")
+            print("\033[90mCD-ROM驅動器(D: 0Byte)")
+            disk=input("\033[0m選擇要更改的分區(填寫盤符，沒有盤符填名稱，如E:)")
+            qing()
+            if disk=="C:" or disk=="D:":
+                print("該分區已被組織HOTM鎖定，不可更改")
+                sleep(3)
+                disk=input("是否繼續更改?(Y|N)")
+                if disk=="Y":
+                    qing()
+                    error("operating system not found")
+                    break
+                else:
+                    print("好的，即將返回桌面")
+            elif disk=="EFI恢複分區":
+                print("A.查看文件 B.屬性")
+                disk=input()
+                qing()
+                if disk=="A":
+                    print("名稱    類型             修改日期               大小")
+                    print("BIOS    固件(.bin)       2020年6月14日 13:23    128KB")
+                    print("config  數據(.dat)       2020年7月6日 15:42     105KB")
+                elif disk=="B":
+                    print("EFI恢複分區")
+                    print("可用空間:99.77MB")
+                    print("總空間:100MB")
+                else:
+                    print("該操作無效。")
+            elif disk=="E:":
+                disk=input("A.壓縮卷 B.屬性 C.擴展卷\n")
+                print("\033[41m")
+                qing()
+                if disk=="A":
+                    print("歡迎使用壓縮卷功能\n本功能會幫助你（妳）壓縮E盤，節約出壹個空閑空間")
+                    print("正在查詢可用空間...")
+                    sleep(3)
+                    qing()
+                    print("歡迎使用壓縮卷\n本功能會幫助你（妳）壓縮E盤，節約出壹個空閑空間")
+                    print("可壓縮:"+str(e-0.25)+"GB\n\033[90mTIP:必須要預留壹些空間供磁盤完成任務")
+                    disk=input("\033[94m輸入要壓縮的空間:")
+                    qing()
+                    if float(disk)>e-0.25:
+                        print("壓縮後的空間太小！請重新選擇！")
+                    else:
+                        print("正在壓縮...")
+                        wfp=wfp+float(disk)
+                        e=e-float(disk)
+                        sleep(2)
+                        print("壓縮成功！E盤剩余空間爲"+str(e)+"GB!")
+                elif disk=="B":
+                    print("備份GHOST(E:)")
+                    print("\033[94m可用空間:"+str(e-0.1)+"GB")
+                    print("已用空間:0.1GB")
+                    print("總容量:"+str(e)+"GB")
+                elif disk=="C":
+                    print("歡迎使用擴展卷功能\n本功能會幫助你（妳）擴大E盤")
+                    print("正在查詢可用空間...")
+                    sleep(3)
+                    qing()
+                    print("歡迎使用擴展卷功能\n本功能會幫助你（妳）擴大E盤")
+                    print("可擴展:"+str(wfp)+"GB\n")
+                    disk=input("\033[94m輸入要擴展的空間:")
+                    qing()
+                    if float(disk)>wfp:
+                        print("要擴展的空間太大！無法擴容！")
+                    else:
+                        print("正在擴展...")
+                        wfp=wfp-float(disk)
+                        e=e+float(disk)
+                        sleep(2)
+                        print("擴展成功！E盤剩余空間爲"+str(e)+"GB!")
+                else:
+                    print("該操作無效。")
+            elif disk=="未分配":
+                disk=input("A.屬性 B.與E盤合並")
+                if disk=="A":
+                    print("未分配")
+                    print("\033[92m已准備就緒！等待分配分區中")
+                    print("\033[0m總容量:"+str(wfp)+"GB")
+                elif disk=="B":
+                    print("歡迎使用合並功能\n本功能會幫助你（妳）將未分配與E盤合並")
+                    print("正在查詢可用空間...")
+                    sleep(3)
+                    qing()
+                    print("歡迎使用合並功能\n本功能會幫助你（妳）將未分配與E盤合並")
+                    print("可擴展:"+str(wfp)+"GB\n")
+                    disk=input("\033[94m輸入要擴展的空間:")
+                    qing()
+                    if float(disk)>wfp:
+                        print("要擴展的空間太大！無法擴容！")
+                    else:
+                        print("正在擴展...")
+                        wfp=wfp-float(disk)
+                        e=e+float(disk)
+                        sleep(2)
+                        print("擴展成功！E盤剩余空間爲"+str(e)+"GB!")
+            else:
+                print("該磁盤不存在")
+        else:
+            software_len = len(kfz)
+            NUMBER = ['壹','二','三','四','五','六','七','八','九','十','十壹','十二','十三','十四','十五','十六','十七','十八','十九','二十','二十壹','二十二','二十三','二十四','二十五','二十六','二十七','二十八','二十九','三十']
+            try:
+                software2 = int(kfz)
+                YUAN = "您輸入了不合法的編號，請您輸入正確編號~"
+            except:
+                if kfz == "" or kfz == " " or kfz == " "*software_len:
+                    YUAN = "您什麽也沒輸入喲~"
+                elif kfz in NUMBER:
+                    YUAN = "請輸入阿拉伯數字,不可輸入漢字~"
+                elif kfz[0:3] == "www" or kfz[0:4] == "http":
+                    YUAN = "不支持輸入網址~"
+                else:
+                    YUAN = "您輸入了程序名,請輸入編號~"
+            qing()
+            print()
+            print()
+            print("\033[33m系統未查找到軟件 - {} -".format(kfz))
+            print("\033[36m原因:{}".format(YUAN))
+            sleep(0.5)
+            input("\033[32mEnter鍵返回開始菜單。")
+            qing()
+            continue
+        print("\n10秒後返回開始菜單\033[000m")
+        sleep(10)
+        qing()
+        continue
+
+def setup():
+    global ds_3
+    global ds_4
+    global ds_5
+    global name
+    global password
+    print("\033[44m")
+    qing()
+    print("\033[7mP\033[0;44man Setup\n==========")
+    print("准備工作...\n備份文件到E盤")
+    print("C:\\"+name+"\\user.dll")
+    sleep(0.09)
+    print("C:\\"+name+"\\data.gho")
+    sleep(0.2)
+    qing()
+    print("\033[7mP\033[0;44man Setup\n==========")
+    print("\033[107m \033[104m            Finding ISO File            [x]\033[107m \033[44m")
+    print("\033[107;30m查找可安裝的鏡像...                          \033[40m \033[44m")
+    print(" \033[40m                                             \033[44m")
+    sleep(15)
+    qing()
+    print("\033[7mP\033[0;44man Setup\n==========")
+    print("\033[107m \033[104m            Choose Operating System            [x]\033[107m \033[44m")
+    print("\033[107;30m正在重裝系統                                        \033[40m \033[44m\n\033[107m選擇你（妳）的系統:(共找到6個鏡像，3個鏡像有效)"+11*" "+"\033[40m \033[44m\n\033[107mPan TSE 2.1                                         \033[40m \033[44m\n\033[107mPan TSE2原版                                        \033[40m \033[44m\n\033[107mPan Developer PE                                    \033[40m \033[44m\033[107m\n"+52*" "+"\033[40m \n\033[44m \033[40m"+51*" "+"\033[40m \033[44m")
+    efi=input("\n\n\033[101m請輸入(區分大小寫和空格):"+27*" "+"\n\033[1A請輸入(區分大小寫和空格):")
+    print("\033[0m")
+    qing()
+    if efi=="Pan TSE 2.1":
+        for i in range(0,904,int(69.5)):
+            print("正在解壓ISO("+str(i)+"KB/904KB)")
+            sleep(0.2)
+            system("clear")
+    elif efi=="Pan TSE2原版":
+        for i in range(0,int(46.5),int(11.6)):
+            print("正在解壓ISO("+str(i)+"MB/46.5MB)")
+            sleep(0.2)
+            system("clear")
+    elif efi=="Pan Developer PE":
+        print("正在重置PE")
+        print("重新格式化PE系統盤...")
+        sleep(3)
+        qing()
+        print("正在重置PE")
+        print("寫入文件...")
+        print("E:\\Ghost.dll")
+        sleep(3)
+        print("E:\\PanTSE2.wim")
+        sleep(2.5)
+        print("E:\\TSE21.iso")
+        sleep(0.37)
+        print("E:\\develop.bat")
+        sleep(3)
+        qing()
+        print("正在重置PE")
+        print("更改Start.exe...")
+        print("Line 1409:Add \"Pan PE\"")
+        sleep(0.3)
+        print("Line 1273:Copy files and hide disk E:")
+        sleep(2.1)
+        print("Line 1492:Save the program")
+        sleep(0.5)
+        qing()
+        print("正在重置PE")
+        print("執行develop.bat...")
+        sleep(2)
+        system("clear")
+        print("重置成功!")
+    else:
+        print("正在解壓文件(0B/0B)")
+        sleep(0.01)
+        system("clear")
+        print("解壓WIM或ISO失敗，系統中斷重裝!")
+        sleep(0.2)
+        print("正在回滾操作...")
+  
+    if efi=="Pan TSE 2.1" or efi=="Pan TSE2原版":
+        sleep(3)
+        qing()
+        print("正在獲取電腦配置")
+        sleep(5)
+        print("正在配置Pan")
+        ds_2=0
+        ds_3=0
+        ds_4=0
+        ds_5=0
+        name="Setup"
+        password=None
+        sleep(20)
+        sb=randint(0,10)#沒有罵人，在這裏sb是“失敗”的縮寫
+        if sb==5:
+            print("配置Pan失敗，正在回滾操作")
+            sleep(5)
+        print("正在複制文件")
+        sleep(1)
+        print(r"C:\local\Start.exe")
+        print(r"C:\local\Touch.dll")
+        sleep(1)
+        print(r"C:\local\program.exe")
+        sleep(1.5)
+        print(r"C:\Start.lnk")
+        print(r"C:\local\Startup.exe")
+        sleep(0.09)
+        print(r"E:\user.dll")
+        sleep(0.09)
+        print(r"E:\data.gho")
+        sleep(0.2)
+        print("所有文件都已複制成功")
+        sleep(3)
+        qing()
+        print("准備就緒...")
+        sleep(randint(2,15)-2)
+        print("\033[44m")
+        qing()
+        print("\033[7mP\033[37;44man Setup\n==========")
+        print("\033[107m \033[104m            Preparing Pan            [x]\033[107m \033[40m \033[44m")
+        print("\033[107;90m准備就緒..."+31*" "+"\033[40m \033[44m")
+        print(" \033[40m"+42*" "+"\033[44m")
+        sleep(2)
+        qing()
+        print("\033[7mP\033[37;44man Setup\n==========")
+        print("\033[107m \033[104m  Registered OK  [x]\033[107m \033[44;90m")
+        print("\033[107m准備完成！"+12*" "+"\033[44m\n\033[107m您的數據和用戶信息成功\033[44m\n\033[107m的保存了下來，系統也重\033[44m\n\033[107m裝完成，接下來您可以盡\033[44m\n\033[107m情使用Pan TSE了"+7*" "+"\033[44m\n\033[107m5秒後進入系統         ")
+        sleep(5)
+        qing()
+def vm(mm,user):
+    print("\033[0m1.Pan1.0    2.PanTO    3.Pan3.0")
+    if 1:
+        if 1:
+            sys=input("輸入虛擬機序號:")
+            qing()
+            if sys=="3":
+                hy=0
+                print("\033[94mPan 3.0 in Virtual")
+                print("      基于虛擬機技術構建")
+                sleep(0.3)
+                system("clear")
+                for i in range(11):
+                    print("Pan 3.0 in Virtual")
+                    print("      基于虛擬機技術構建")
+                    print("正在開機..."+("▇"*i))
+                    sleep(0.2)
+                    qing()
+                sleep(0.5)
+                qing()
+                print("__________________")
+                print("|                  |")
+                print("|                  |")
+                print("|        +         |")
+                print("|                  |")
+                print("|__________________|")
+                print("\033[94m請點擊屏幕驗證身份並激活光標")
+                sleep(2)
+                qing()
+                mm3=None
+                no_wrong=0
+                while mm3!=mm:
+                    if no_wrong==0:
+                        mm3=input("爲了確保安全，請輸入密碼:")
+                        no_wrong=1
+                    else:
+                        mm3=input("密碼錯誤，請重新輸入:")
+                    qing()
+                print("密碼輸入正確")
+                print("\033[93mO 歡迎")
+                sleep(2)
+                qing()
+                while 1:
+                    print("\033[0m------------PAN PRO 3---------------")   
+                    print(ctime())
+                    print('''0.關機
+1.設置
+2.計算器
+3.平均數計算器
+4.雞兔同籠計算器
+5.年齡計算器
+6.記事本
+7.小遊戲
+8.更新
+9.信息
+10.成績預測
+11.加入工作室
+12.護眼模式
+13.你（妳）的身材標准嗎？
+14.幻覺
+15.新聞
+16.如何壹夜上熱搜
+17.待機
+18."錯誤"的代碼''')
+                    prog3=int(input())
+                    system("clear")
+                    if prog3==1:
+                        print("您已通過VMware授權激活。")
+                        print("\033[32m??  激活Pan YES")
+                        print("\033[31m虛擬機上的Pan數據可能會被篡改，請注意隱私安全")
+                    elif prog3==2:
+                        print("輸入的數全爲整數")
+                        print("輸入運算符號 1:+ 2:- 3:* 4:/")
+                        fuhao=int(input())
+                        s1=int(input("輸入第壹個數"))
+                        s2=int(input("輸入第二個數"))
+                        if fuhao==1:
+                            print(s1+s2)
+                        elif fuhao==2:
+                            print(s1-s2)
+                        elif fuhao==3:
+                            print(s1*s2)
+                        elif fuhao==4:
+                            print(s1/s2)
+                        else:
+                            print("錯誤")
+                    elif prog3==3:
+                        gs=int(input("有幾個數"))
+                        pjs=0
+                        for j in range(0,gs):
+                            s=int(input("輸入數字："))
+                            pjs=pjs+s
+                        print("平均數是:",pjs/gs)
+                    elif prog3==4:
+                        head=int(input("有幾個頭"))
+                        feet=int(input("有幾只腳"))
+                        chicken=feet-(head*2)
+                        rabbit=chicken/4
+                        chicken=head-rabbit
+                        print("雞有",int(chicken),"只，兔有",int(rabbit),"只")
+                    elif prog3==5:
+                        new=int(input("輸入已知年齡"))
+                        old=int(input("已知年齡到了這個年紀之後，老的多少歲？(已知年齡<未知年齡)"))
+                        print("老的年齡是",(old-new)/2,"歲")
+                    elif prog3==6:
+                        while True:
+                            qing()
+                            print("\033[?25h\033[32m歡迎使用記事本!\033[34m輸入已有記事本打開,\033[33m輸入新名字即可新建,\033[31m輸入exit退出,\033[35m輸入recycle查看回收站")
+                            print("\033[33m已有記事本:\033[0m")
+                            for i in jsb:
+                                print(i)
+                            j=input("\033[36m輸入記事本名:")
+                            qing()
+                            if j.lower()=='exit':
+                                print("\033[?25l")
+                                break
+                            elif j.lower()=='recovery':
+                                print("\033[36m| Pan Recovered files\033[32m")
+                                for i in jsbrc:
+                                    print("\033[32m記事本名稱 : "+str(i))
+                                    print("\033[33m記事本內容 : 見下行\n"+str(jsbrc[i]))
+                                    print()
+                                input("\033[36m（recovery內容無法恢複，只支持臨時查看，文章中\033[34m\\n\033[36m代表換行；回車鍵返回。）")  
+                            elif j.lower()=='recycle':
+                                print("\033[36m| 記事本回收站\033[32m")
+                                for i in jsbr:
+                                    print(i)
+                                cao = input("\033[36m輸入要執行的操作(1=恢複 2=徹底刪除 3=全部徹底刪除 4=全部恢複)：")
+                                if cao != '3' and cao != '4':
+                                    jj = input("\033[33m輸入要操作的記事本名：")
+                                if cao == '1':
+                                    if jj in jsbr:
+                                        jsb[jj] = jsbr[jj]
+                                        del jsbr[jj]
+                                        print("\033[32m恢複成功！")
+                                    else:
+                                        print("\033[31m記事本名輸入錯誤")
+                                elif cao == '2':
+                                    if jj in jsbr:
+                                        jsbrc[jj] = jsbr[jj]
+                                        del jsbr[jj]
+                                        print("\033[32m徹底刪除成功！")
+                                    else:
+                                        print("\033[31m記事本名輸入錯誤")
+                                elif cao == '3':
+                                    for i in jsbr:
+                                        jsbrc[i] = jsbr[i]
+                                    del jsbr
+                                    jsbr = {}
+                                    print("\033[36m正在抹掉......")
+                                    sleep(0.5)
+                                    print("\033[32m刪除成功！")
+                                elif cao == '4':
+                                    for i in jsbr:
+                                        jsb[i] = jsbr[i]
+                                    del jsbr
+                                    jsbr = {}
+                                    print("\033[36m正在恢複......")
+                                    sleep(0.5)
+                                    print("\033[32m恢複成功！")
+                                else:
+                                    print("\033[31m無效操作")
+                                input("\033[35mEnter鍵返回")
+                            elif j in jsb:
+                                print(jsb[j])
+                                print("\033[33m1.更改 \033[31m2.刪除 \033[34m3.重命名 \033[31m其他退出")
+                                c=input("\033[0m請選擇：")
+                                if c=='1':
+                                    qing()
+                                    nr = ''
+                                    print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                                    while True:
+                                        a = input()
+                                        if a == 'esc':
+                                            break
+                                        elif a == 'clear':
+                                            nr = ''
+                                            qing()
+                                            print("\033[32m輸入更改後的內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                                            continue
+                                        elif '<fontcolor='in a:
+                                            if len(a) < 12:
+                                                print("\033[31m語法錯誤：<fontcolor=  value error:is no color input\033[33m")
+                                                continue
+                                            if a[11] == '紅':
+                                                nr = nr + '\033[31m'
+                                            elif a[11] == '綠':
+                                                nr = nr + '\033[32m'
+                                            elif a[11] == '黃':
+                                                nr = nr + '\033[33m'
+                                            elif a[11] == '藍':
+                                                nr = nr + '\033[34m'
+                                            elif a[11] == '紫':
+                                                nr = nr + '\033[35m'
+                                            elif a[11] == '青':
+                                                nr = nr + '\033[36m'
+                                            text = a + '\n'
+                                            nr = nr + text
+                                        else:
+                                            text = a + "\n"
+                                            nr = nr + text
+                                    jsb[j]=nr
+                                    print("\033[32m更改成功!")
+                                elif c=='2':
+                                    jsbr[j] = jsb[j]
+                                    del jsb[j]
+                                    print("\033[32m刪除成功，可在回收站查看!")
+                                elif c=='3':
+                                    new=input("\033[36m輸入新記事本名:")
+                                    if new=='exit':
+                                        print("\033[31m不可使用關鍵詞exit命名記事本!")
+                                        sleep(2)
+                                        continue
+                                    jsb[new] = jsb[j]
+                                    del jsb[j]
+                                    print("\033[32m更改成功!")
+                                else:
+                                    continue
+                                sleep(2)
+                            else:
+                                nr = ''
+                                print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                                while True:
+                                    a = input()
+                                    if a == 'esc':
+                                        break
+                                    elif a == 'clear':
+                                        nr = ''
+                                        qing()
+                                        print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                                        continue
+                                    elif '<fontcolor='in a:
+                                        if len(a) < 12:
+                                            print("\033[31m語法錯誤：<fontcolor=  value error:is no color input\033[33m")
+                                            continue
+                                        if a[11] == '紅':
+                                            nr = nr + '\033[31m'
+                                        elif a[11] == '綠':
+                                            nr = nr + '\033[32m'
+                                        elif a[11] == '黃':
+                                            nr = nr + '\033[33m'
+                                        elif a[11] == '藍':
+                                            nr = nr + '\033[34m'
+                                        elif a[11] == '紫':
+                                            nr = nr + '\033[35m'
+                                        elif a[11] == '青':
+                                            nr = nr + '\033[36m'
+                                        text = a + '\n'
+                                        nr = nr + text
+                                    else:
+                                        text = a + "\n"
+                                        nr = nr + text
+                                jsb[j]=nr
+                                print("新建成功!")
+                                sleep(2)
+                            print("\033[?25l")
+                    elif prog3==7:
+                        for i in range(1,16):
+                            num=random.randint(0,10)
+                            score=0
+                            print("?"+" "*num+"\(·□·)\ ")
+                            sum1=int(input("輸入目測距離(誤差不超過1個空格):"))
+                            if sum1==num or sum1==num-1 or sum1==num+1:
+                                print("吃到emoji小人，加兩分！")
+                                score=score+2
+                            else:
+                                print("粉身碎骨，扣壹分！")
+                                score=score-1
+                            print("你（妳）的得分爲：",score)
+                    elif prog3==8:
+                        print("檢測中······")
+                        sleep(1)
+                        print("您的版本:Virtual 2020 3.0.2 最新版本:Virtual 2020 3.1 Beta\n您還未升級Pan,請聯系您的管理員進行升級。")
+                    elif prog3==9:
+                        z("提前聲明:請勿發送給陌生人，否則您的精神或財産可能受到損失")
+                        phone = input("\033[32m請輸入手機號碼:")
+                        if len(phone) < 5:
+                            system("clear")
+                            print("請輸入正確的手機號碼!")
+                            sleep(1)
+                            system("clear")
+                        conten = input("請輸入發送內容[Enter發送]:")
+                        send_msg(int(phone),conten)
+                        print("發送成功\033[42m ? \033[0m")
+                    elif prog3==10:
+                        print("預計你（妳）某科的成績爲",randint(85,100),"分")
+                    elif prog3==11:
+                        print("""【程序部】（選壹完成）要求：會Scratch,Python,C++（重要）要求不高，但作品需要精致，不抄襲，不騙贊
+        【文藝部】要求：精通Scratch，工作：進行錄音/拍攝等壹些工作
+        【宣傳部】選壹作品或者工作室招人進行宣傳，發送到學而思編程官網即可
+        【後勤部】要求和程序部壹樣，修改程序部的bug即可。
+        PS:有意者請加QQ:420137013 如果有英語不行的，關注微信公衆號:Eng-Knows""")
+                    elif prog3==12:
+                        if hy==0:
+                            print("\033[32m護眼模式已打開！")
+                            hy=1
+                        else:
+                            print("\033[37m護眼模式已關閉！")
+                            hy=0
+                    elif prog3==13:
+                        cm=int(input("輸入你（妳）的身高（單位：厘米）"))
+                        kg=int(input("輸入你（妳）的體重（單位：千克）"))
+                        std=(cm-100)*0.9
+                        if kg>std*1.1:
+                            print("你（妳）偏胖")
+                        elif kg<std*0.9:
+                            print("你（妳）偏瘦")
+                        else:
+                            print("你（妳）的身材很標准?！")
+                    elif prog3==14:
+                        print("\033[93m代碼運行結束")
+                        sleep(3*2)
+                        print("\033[37m什麽？你（妳）還沒走？")
+                        print("那試試這樣子吧")
+                        break
+                    elif prog3==15:
+                        print("暫無資訊")
+                        input("看完按Enter")
+                    elif prog3==16:
+                        print("1.發壹些社區人都關注的東西，如“操作系統”，“反迷你（妳）”等標題")
+                        print("2.如果你（妳）不那樣的話，你（妳）就反複點你（妳）的作品，再刷新，就可以了(只能做壹次，絕非刷贊)")
+                    elif prog3==17:
+                        sl=int(input("輸入待機秒數，不超過2.5分鍾"))
+                        if sl<=150:
+                            for i in range(0,sl):
+                                print(sl)
+                                sl=sl-1
+                                sleep(1)
+                        
+                        else:
+                            print("時間超限！")
+                        print("O歡迎！")
+                    elif prog3==18:
+                        print('''Traceback (most recent call last):
+File "main.py", line 1020, in <module>
+    sleep(2)
+    ^
+NameError: name 'sleep' is not defined
+\033[93m代碼運行結束''')
+                    elif prog3==0:
+                        print("正在關機······")
+                        sleep(2)
+                        break
+                    else:
+                        print("該程序不存在。")
+                    sleep(6.5)
+                    system("clear")
+                    continue
+            elif sys=="1":
+                print("\033[44m")
+                system("clear")
+                print("                       HOTM?")
+                print("                     HOTM Pan")
+                print("                   Version 1.0.3")
+                print(" \n \n \n \n \n \n \nCopyright <c> HOTM Workshop,2019.All rights Reserved.")
+                print("HOTM is a registered trademark of HOTM Studio.")
+                print("\033[0m")
+                sleep(3)
+                qing()
+                while 1:
+                    print("PAN1.0 in Virtual PC from HOTM original version")
+                    print("0.Shutdown")
+                    print("1.Clock")
+                    print("2.Clac")
+                    print("3.Control")
+                    print("4.Notepad")
+                    print("5.Alarm")
+                    prog1=int(input(""))
+                    qing()
+                    if prog1==0:
+                        print("_")
+                        sleep(1)
+                        qing()
+                        print("please wait_")
+                        sleep(0.01)
+                        qing()
+                        print("please wait\nPan is shutting down..._")
+                        sleep(2)
+                        break
+                    elif prog1==1:
+                        for i in range(10):
+                            print(ctime())
+                            sleep(1)
+                            qing()
+                    elif prog1==2:
+                        num=int(input("Please Enter the First number:"))
+                        ope=input("Please Enter operate mode(+,-,*,/):")
+                        num2=int(input("Please Enter the Second number:"))
+                        if ope=="+":
+                            print(num+num2)
+                        elif ope=="-":
+                            print(num-num2)
+                        elif ope=="*":
+                            print(num*num2)
+                        elif ope=="/":
+                            print(str(num*num2)+" or "+str(num*num2)+"......"+str(num%num2))
+                        else:
+                            print("Error")
+                    elif prog1==3:
+                        print("??  Your PC is out of support")
+                        print("Please update to PanNT4 or higher version,or your PC can't work.")
+                    elif prog1==4:
+                        print("Notepad(Enter someting,Enter\"esc\"save and exit)")
+                        notepad=None
+                        print("last record:\n"+notepad)
+                        while notepad!="esc":
+                            notepad=input()
+                    elif prog1==5:
+                        z("Alarm")
+                        z("input time(such as 7:00)",end="")
+                        time=input()
+                        while strftime("%H:%M")!=alarm:
+                            sleep(1)
+                        print("?  Alarm")
+                        play_mp3("lulu.mp3")
+                    else:
+                        print("I am sorry,the porgram is not defined")
+                    sleep(5)
+                    qing()
+                    continue
+            elif sys=="2":
+                print("           ??")
+                print("       HOTM\033[91mPan\033[94mTO\033[0m")
+                sleep(0.2)
+                qing()
+                for i in range(10):
+                    print("           ??")
+                    print("       HOTM\033[91mPan\033[94mTO\033[0m")
+                    print("Startup...["+"?"*i+"]")
+                    sleep(0.1)
+                    qing()
+                print("\033[9m?\033[91mPan\033[94mTO\033[0m\n")
+                mm_to=None
+                while mm_to!=mm:
+                    mm_to=input("要進入系統，請先輸入Pan TSE賬戶"+user+"的密碼:")
+                qing()
+                print("\033[92mo 歡迎\033[0m")
+                sleep(2)
+                while 1:
+                    print(ctime())
+                    print("""0.關機
+1.畫圖
+2.鬧鍾
+3.郵件
+4.計算器
+5.設置
+6.系統屬性""")
+                    progto=input("")
+                    qing()
+                    if progto=="1":
+                        print("您的電腦配置不支持此程序，程序已被禁用。")
+                    elif progto=="0":
+                        print("\033[94mo 正在關機...\033[0m")
+                        break
+                    elif progto=="2":
+                        z("Alarm(Version1.0.1 in Pan 1.0)")
+                        z("input time(such as 7:00)",end="")
+                        time=input()
+                        while strftime("%H:%M")!=alarm:
+                            sleep(1)
+                        print("?  Alarm")
+                        play_mp3("lulu.mp3")
+                    elif progto=="3":
+                        z("提前聲明:請勿發送給陌生人，否則您的精神或財産可能受到損失")
+                        phone = input("\033[32m請輸入手機號碼:")
+                        if len(phone) < 5:
+                            system("clear")
+                            print("請輸入正確的手機號碼!")
+                            sleep(1)
+                            system("clear")
+                        conten = input("請輸入發送內容[Enter發送]:")
+                        send_msg(int(phone),conten)
+                        print("發送成功\033[42m ? \033[0m")
+                    elif progto=="4":
+                        num=int(input("輸入第壹個數:"))
+                        ope=input("輸入運算符號(+,-,*,/):")
+                        num2=int(input("輸入第二個數:"))
+                        if ope=="+":
+                            print(num+num2)
+                        elif ope=="-":
+                            print(num-num2)
+                        elif ope=="*":
+                            print(num*num2)
+                        elif ope=="/":
+                            print(str(num*num2)+" or "+str(num*num2)+"......"+str(num%num2))
+                        else:
+                            print("Error")
+                    elif progto=="5":
+                        print("此電腦制造商:\033[3mVMware\033[0m")
+                        print("電腦啓用時間:2020年6月18日 技術支持有效期:2020年5月12日\n延伸技術支持:2021年12月31日",end="")
+                        print("計算機名稱:PanTO Virtual")
+                        sleep(2)
+                        print("請按任意鍵繼續...")
+                        system("read anykey")
+                    elif progto=="6":
+                        print("           ??")
+                        print("       HOTM\033[91mPan\033[94mTO\033[0m")
+                        print("       (c)2019 HOTM workshop")
+                        input("Enter鍵繼續")
+                    else:
+                        print("找不到應用程序。")
+                    sleep(5)
+                    qing()
+                    continue
+llqjh=0
+ds_3=0
+#---------------------------------定義---------------------------------
+try:
+    print("\033[?25l",end="")
+    for i in range(0,100,5):
+        print("正在检查系统盘(C:)，检查完成后将为你开机(完成"+str(i)+"%)")
+        sleep(0.2)
+        qing()
+    print("正在启动Pan TSE 2.1")
+    su1=time()
+    for i in range(3):
+        print("_")
+        sleep(0.2)
+        qing()
+        sleep(0.2)
+    sleep(1)
+    for i in range(randint(2,6)):
+        print("           \033[101m  \033[0m\033[102m  \033[0m")
+        print("           \033[104m  \033[0m\033[103m  \033[0m")
+        print("\n\n"+"            \033[104m \033[100m \033[0m")
+        print("            \033[100m \033[100m \033[0m")
+        sleep(0.2)
+        qing()
+        print("           \033[101m  \033[0m\033[102m  \033[0m")
+        print("           \033[104m  \033[0m\033[103m  \033[0m")
+        print("\n\n"+"            \033[100m \033[104m \033[0m")
+        print("            \033[100m \033[100m \033[0m")
+        sleep(0.2)
+        qing()
+        print("           \033[101m  \033[0m\033[102m  \033[0m")
+        print("           \033[104m  \033[0m\033[103m  \033[0m")
+        print("\n\n"+"            \033[100m \033[100m \033[0m")
+        print("            \033[100m \033[104m \033[0m")
+        sleep(0.2)
+        qing()
+        print("           \033[101m  \033[0m\033[102m  \033[0m")
+        print("           \033[104m  \033[0m\033[103m  \033[0m")
+        print("\n\n"+"            \033[100m \033[100m \033[0m")
+        print("            \033[104m \033[100m \033[0m")
+        sleep(0.2)
+        qing()
+    sleep(2)
+    su2=time()-su1
+    su2=round(su2)
+    if su2<=11:
+        print("\033[93m360提醒您:本次開機用了"+str(su2)+"秒，超越了全國99%的電腦，獲得五星級神機稱號")
+    elif su2<=12:
+        print("\033[93m360提醒您:本次開機用了"+str(su2)+"秒，超越了全國97%的電腦，可能是卡頓情況，此爲正常現象")
+    elif su2<=20:
+        print("\033[93m360提醒您:本次開機用了"+str(su2)+"秒，超越了全國75%的電腦，速度比較慢啊")
+    else:
+        print("\033[93m360提醒您:本次開機用了"+str(su2)+"秒，超越了全國1%的電腦，你（妳）的電腦延遲非常嚴重，建議檢查網絡")
+    sleep(3)
+    qing()
+    name=input("請輸入您的姓名:")
+    while name=="Administrator" or name=="guest" or name=="SYSTEM" or name==" "*len(name):
+        qing()
+        name=input("輸入的姓名不可用，請重新輸入:")
+    password=input("請輸入您的密碼:")
+    qing()
+    password_yz=None
+    password_yz=input("請再次輸入您的密碼:")
+    while password_yz!=password:
+        password_yz=input("\033[91m密碼錯誤，請輸入您的密碼:")
+    print("\033[94mo 歡迎"+name)
+    sleep(2)
+    qing()
+    while 1:
+        if llqjh==0:
+            print("\033[90m激活Pan\n輸入35768以激活Pan\033[0m")
+        if classic==0 or classic==2:
+            if classic==2:
+                print("\033[101m")
+                qing()
+            print("\033[0m開始                        "+name)
+            print("\033[90m0.關機  \033[30m1.待機    \033[91m2.計算器")
+            print("\033[31m3.記事本        \033[92m4.重啓（不會丟失數據)")
+            print("\033[32m5.系統屬性    \033[93m6.命令提示符    \033[33m7.有道     \033[94m8.地圖 ")
+            print("\033[95m9.浏覽器        \033[34m10.計算機      \033[35m11.Pan系統入門 \033[96m12.應用商店")
+            prog=input("\033[0m請輸入應用序號:")
+        else:
+            print("\033[103m")
+            qing()
+            print("現在是",strftime("%Y年%m月%d日 %H點%M分%S秒",localtime()))
+            print("\033[90m0.關機\n\033[30m1.待機\n\033[91m2.計算器")
+            print("\033[31m3.記事本\n\033[92m4.重啓（不會丟失數據)")
+            print("\033[32m5.系統屬性\n\033[33m6.命令提示符\n\033[33m7.有道\n\033[94m8.地圖 ")
+            print("\033[95m9.浏覽器\n\033[34m10.計算機\n\033[35m11.Pan系統入門\n\033[96m12.應用商店")
+            prog=input("\033[0;103m請輸入應用序號:")
+
+        if ds_1==1:
+            print("\033[91m13.掃雷")
+        if ds_2==1:
+            print("\033[33m14.Diskgenius")
+        if ds_3==1:
+            print("\033[94m15.VMware")
+        if ds_4==1:
+            print("\033[33m16.360安全衛士")
+        if ds_5==1:
+            print("\033[96m17.拍拍戰爭")
+        if classic==0:
+            print("\033[0m"+strftime("%H:%M",localtime()))
+        
+        print("\033[0m")
+        qing()
+        if llqjh==0:
+            print("\033[90m激活Pan\n輸入35768以激活Pan\033[0m")
+        if prog=="0":
+            for i in range(5):
+                print("\033[0mo 正在關機")
+                sleep(0.2)
+                system("clear")
+                print("\033[94mo 正在關機")
+                sleep(0.2)
+                system("clear")
+            sleep(1)
+            qing()
+            print("\033[92m現在你（妳）可以安全地關閉你（妳）的電腦了\033[8m")
+            break
+        elif prog=="1":
+            print("\033[0m電腦正在休眠，按Enter鍵結束")
+            sleep(2)
+            system("clear")
+            print("\033[0m電腦正在休眠，按Enter鍵結束")
+            sleep(0.5)
+            qing()
+            input()
+            password_yz=input("請輸入您的密碼以登錄:")
+            while password_yz!=password:
+                password_yz=input("\033[91m密碼錯誤，請輸入您的密碼:")
+            print("\033[94mo 歡迎"+name)
+        elif prog=="2":
+            qing()
+            print("\033[002m\033[32m     ﹢﹣× ÷       ")
+            print("\033[002m\033[34m歡迎使用萬能計算器。")
+            sleep(0.5)
+            qing()
+            print("\033[0m\033[32m     ﹢﹣× ÷       ")
+            print("\033[34m歡迎使用萬能計算器。")
+            sleep(1)
+            qing()
+            print("\033[35m+===============Pan萬能計算器===============+")
+            print("\033[31m| 計算器系列")
+            print("\033[36m1=普通計算器      ")
+            print("\033[33m2=綜合算式計算    ")
+            print("\033[35m3=平均數計算      \033[36m5=平年閏年計算")#4這個數字不吉利，所以我沒用了
+            print("\033[32m6=日期間隔計算")
+            print("\033[31m| 單位轉換系列")
+            print("\033[36m7=貨幣轉換")
+            ji_xuan = input("\033[33m請輸入輸入模式的編號:")
+            if ji_xuan == "1":
+                while 1:
+                    try:
+                        qing()
+                        print("\033[32m    - 普通計算器 -")
+                        kaishi1 = input("\033[33m按Enter鍵開始(字符退出)：")
+                        if kaishi1 == "":
+                            qing()
+                            number1 = input("\033[33m請輸入第壹個數字: ")
+                            number2 = input("\033[32m請輸入第二個數字: ")
+                            leixin = input("\033[34m請輸入運算符號:(\033[31m1.加法，\033[32m2.減法，\033[33m3.乘法，\033[36m4.除法): ")
+                            if leixin == "1":
+                                fu = "+"
+                            elif leixin == "2":
+                                fu = "-"
+                            elif leixin == "3":
+                                fu = "*"
+                            elif leixin == "4":
+                                fu = "/"
+                            else:
+                                fu = "+"
+                            qing()
+                            print("\033[31m正在運算中...\033[33m")
+                            sleep(0.1)
+                            qing()
+                            #請求列豎式
+                            if len(number1) == 2 and len(number2) == 2 and fu == "*":
+                                print("         "+str(number1[0])+"   "+str(number1[1]))
+                                print(" "+fu+"       " +str(number2[0])+"   "+str(number2[1]) )
+                                print("-------------------------")
+                                shu1_n2 = number2[1]
+                                shu2_n2 = number2[0]+"0"
+                                shu1_n2 = int(shu1_n2)
+                                shu2_n2 = int(shu2_n2)
+                                number1 = int(number1)
+                                number2 = int(number2)
+                                print("       ",shu1_n2 * number1)
+                                print("       ",shu2_n2 * number1)
+                                print("-------------------------")
+                                print("       ",number1 * number2)
+                                print("\033[36m - 豎式僅供參考，有時候AI也會犯傻 - ")
+                                print()
+                            elif fu == "+":
+                                print(" "+ number1)
+                                print(fu + number2)
+                                print("-------------------------")
+                                number1 = int(number1)
+                                number2 = int(number2)
+                                print("",number1+number2)
+                                print("\033[36m - 豎式僅供參考，有時候AI也會犯傻 - ")
+                                print()
+                            elif fu == "-":
+                                print(" "+ number1)
+                                print(fu + number2)
+                                print("-------------------------")
+                                number1 = int(number1)
+                                number2 = int(number2)
+                                print("",number1 - number2)
+                                print("\033[36m - 豎式僅供參考，有時候AI也會犯傻 - ")
+                                print()
+                            elif fu == "*" and len(number1) <= 2 and len(number2) <= 2:
+                                print(" "+ number1)
+                                print(fu + number2)
+                                print("-------------------------")
+                                number1 = int(number1)
+                                number2 = int(number2)
+                                print("",number1 * number2)
+                                print("\033[36m - 豎式僅供參考，有時候AI也會犯傻 - ")
+                                print()
+                            elif fu == "*" and len(number1) > 2 and len(number2) > 2:
+                                qing()
+                                print()
+                                print()
+                                print("\033[33m○ 正在加載豎式\033[31m")
+                                print()
+                                print()
+                                sleep(2)
+                                qing()
+                                print("     ?    ")
+                                print("豎式加載失敗")
+                                print()
+                                print("\033[36m - 豎式僅供參考，有時候AI也會犯傻 - ")
+                                print()
+                            elif fu == "/":
+                                print("\033[31m抱歉，此版本僅支持加法、減法和乘法的豎式，暫不支持除法豎式~")
+                                #類型判斷並運算
+                                number1 = int(number1)
+                                number2 = int(number2)
+                                if leixin == "1":
+                                    print("\033[34m"+str(number1)+"+"+str(number2)+"的答案是:",number1 + number2)
+                                elif leixin == "2":
+                                    print("\033[34m"+str(number1)+"-"+str(number2)+"的答案是:",number1 - number2)
+                                elif leixin == "3":
+                                    print("\033[34m"+str(number1)+"x"+str(number2)+"的答案是:",number1 * number2)
+                                elif leixin == "4":
+                                    leixinofchu = input("\033[33m請選擇除法類型：(1.小數計算，2.帶余數法計算):")
+                                    if leixinofchu == "1":#小數計算
+                                        print("\033[34m"+str(number1)+"÷"+str(number2)+"的答案是:",number1 / number2)
+                                    elif leixinofchu == "2":#余數計算
+                                        answer_of_chu = str(number1 // number2)+"······"+str(number1 % number2)
+                                        print("\033[34m"+str(number1)+"÷"+str(number2)+"的答案是:",answer_of_chu)
+                                    else:
+                                        print("\033[31m沒有此選項~")
+                            else:
+                                qing()
+                                print("\033[31m沒有此選項~")
+                            input("\033[33m按Enter鍵完成：")
+                            qing()
+                        else:
+                            qing()
+                            print("\033[31m退出中...")
+                            sleep(1)
+                            break
+                    except ZeroDivisionError:
+                        print("除數不能爲0")
+                    except ValueError:
+                        print("運算錯誤！") 
+            elif ji_xuan == "2":
+                qing()
+                shss_1 = input("\033[33m請輸入算式(如：1*5+6/2-1):")
+                try:
+                    print("\033[32m該算式的計算結果如下：")
+                    print(shss_1,"=",eval(shss_1))
+                    print("\033[36m遞等式:敬請期待")
+                except:
+                    print("\033[31m錯誤")
+            elif ji_xuan == "3":
+                qing()
+                pl = []
+                qpjsgs = int(input("\033[33m請輸入數的個數：\033[32m"))
+                for i in range(qpjsgs):
+                    str1 = '第' +str(i+1)+'個數是:'
+                    p = int(input(str1))
+                    pl.append(p)
+                    qing()
+                qing()
+                psum = sum(pl)
+                pa = psum/qpjsgs
+                print("\033[34m平均數是：",pa)
+            elif ji_xuan == "5":
+                qing()
+                a = int(input('\033[33m請輸入今年的年份:'))
+                qing()
+                if a % 400 == 0 or a % 4 == 0 and a % 100 != 0:
+                    print('\033[32m這年是：閏年')
+                else:
+                    print('\033[34m這年是：平年')
+            elif ji_xuan == "6":
+                qing()
+                print("\033[36m基本格式:如2020-01-01")
+                date1 = input("\033[32m輸入第壹個日期(格式見上):")
+                date2 = input("\033[34m輸入第二個日期(格式見上):")
+                try:
+                    days = date_diff(date1,date2)
+                    print("\033[93m答案是:"+str(days)+"天。\033[0m")
+                except:
+                    print("\033[91m格式錯誤或系統錯誤，運算失敗\033[0m")
+            elif ji_xuan == "7":#貨幣
+                qing()
+                print("\033[33m1=人民幣>歐元")
+                print("\033[32m2=人民幣>日元")
+                print("\033[34m3=人民幣>美元")
+                print("\033[35m4=人民幣>韓元")
+                mode = input("\033[31m>>>")
+                qing()
+                if mode == "1":
+                    q = int(input("\033[36m請輸入人民幣:"))
+                    a = q * 0.1318
+                    print("\033[32m轉換結果:"+str(q)+"人民幣="+str(a)+"歐元")
+                elif mode == "2":
+                    q = int(input("\033[36m請輸入人民幣:"))
+                    a = q * 15.6430
+                    print("\033[32m轉換結果:"+str(q)+"人民幣="+str(a)+"日元")
+                elif mode == "3":
+                    q = int(input("\033[36m請輸入人民幣:"))
+                    a = q * 0.1410
+                    print("\033[32m轉換結果:"+str(q)+"人民幣="+str(a)+"美元")
+                elif mode == "4":
+                    q = int(input("\033[36m請輸入人民幣:"))
+                    a = q * 176.8076
+                    print("\033[32m轉換結果:"+str(q)+"人民幣="+str(a)+"韓元")
+                else:
+                    print("\033[31m暫時沒有這個單位~")
+            input("\033[33mEnter鍵返回桌面。")
+        elif prog=="3":
+            while 1:
+                qing()
+                print("\033[?25h\033[32m歡迎使用記事本!\033[34m輸入已有記事本打開,\033[33m輸入新名字即可新建,\033[31m輸入exit退出,\033[35m輸入recycle查看回收站")
+                print("\033[33m已有記事本:\033[0m")
+                for i in jsb:
+                    print(i)
+                j=input("\033[36m輸入記事本名:")
+                qing()
+                if j.lower()=='exit':
+                    print("\033[?25l")
+                    break
+                elif j.lower()=='recovery':
+                    print("\033[36m| Pan Recovered files\033[32m")
+                    for i in jsbrc:
+                        print("\033[32m記事本名稱 : "+str(i))
+                        print("\033[33m記事本內容 : 見下行\n"+str(jsbrc[i]))
+                        print()
+                    input("\033[36m（recovery內容無法恢複，只支持臨時查看，文章中\033[34m\\n\033[36m代表換行；回車鍵返回。）")  
+                elif j.lower()=='recycle':
+                    print("\033[36m| 記事本回收站\033[32m")
+                    for i in jsbr:
+                        print(i)
+                    cao = input("\033[36m輸入要執行的操作(1=恢複 2=徹底刪除 3=全部徹底刪除 4=全部恢複)：")
+                    if cao != '3' and cao != '4':
+                        jj = input("\033[33m輸入要操作的記事本名：")
+                    elif cao == '1':
+                        if jj in jsbr:
+                            jsb[jj] = jsbr[jj]
+                            del jsbr[jj]
+                            print("\033[32m恢複成功！")
+                        else:
+                            print("\033[31m記事本名輸入錯誤")
+                    elif cao == '2':
+                        if jj in jsbr:
+                            jsbrc[jj] = jsbr[jj]
+                            del jsbr[jj]
+                            print("\033[32m徹底刪除成功！")
+                        else:
+                            print("\033[31m記事本名輸入錯誤")
+                    elif cao == '3':
+                        for i in jsbr:
+                            jsbrc[i] = jsbr[i]
+                        del jsbr
+                        jsbr = {}
+                        print("\033[36m正在抹掉......")
+                        sleep(0.5)
+                        print("\033[32m刪除成功！")
+                    elif cao == '4':
+                        for i in jsbr:
+                            jsb[i] = jsbr[i]
+                        del jsbr
+                        jsbr = {}
+                        print("\033[36m正在恢複......")
+                        sleep(0.5)
+                        print("\033[32m恢複成功！")
+                    else:
+                        print("\033[31m無效操作")
+                    input("\033[35mEnter鍵返回")
+                elif j in jsb:
+                    print(jsb[j])
+                    print("\033[33m1.更改 \033[31m2.刪除 \033[34m3.重命名 \033[31m其他退出")
+                    c=input("\033[0m請選擇：")
+                    if c=='1':
+                        qing()
+                        nr = ''
+                        print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                        while 1:
+                            a = input()
+                            if a == 'esc':
+                                break
+                            elif a == 'clear':
+                                nr = ''
+                                qing()
+                                print("\033[32m輸入更改後的內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                                continue
+                            elif '<fontcolor='in a:
+                                if len(a) < 12:
+                                    print("\033[31m語法錯誤：<fontcolor=  value error:is no color input\033[33m")
+                                    continue
+                                if a[11] == '紅':
+                                    nr = nr + '\033[31m'
+                                elif a[11] == '綠':
+                                    nr = nr + '\033[32m'
+                                elif a[11] == '黃':
+                                    nr = nr + '\033[33m'
+                                elif a[11] == '藍':
+                                    nr = nr + '\033[34m'
+                                elif a[11] == '紫':
+                                    nr = nr + '\033[35m'
+                                elif a[11] == '青':
+                                    nr = nr + '\033[36m'
+                                text = a + '\n'
+                                nr = nr + text
+                            else:
+                                text = a + "\n"
+                            nr = nr + text
+                            jsb[j]=nr
+                            print("\033[32m更改成功!")
+                    elif c=='2':
+                        jsbr[j] = jsb[j]
+                        del jsb[j]
+                        print("\033[32m刪除成功，可在回收站查看!")
+                    elif c=='3':
+                        new=input("\033[36m輸入新記事本名:")
+                        if new=='exit':
+                            print("\033[31m不可使用關鍵詞exit命名記事本!")
+                            sleep(2)
+                            continue
+                            jsb[new] = jsb[j]
+                            del jsb[j]
+                            print("\033[32m更改成功!")
+                    else:
+                        continue
+                    sleep(2)
+                else:
+                    nr = ''
+                    print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                    while True:
+                        a = input()
+                        if a == 'esc':
+                            break
+                        elif a == 'clear':
+                            nr = ''
+                            qing()
+                            print("\033[32m輸入記事本內容，輸入esc完成，輸入clear清空所有內容。\033[33m")
+                            continue
+                        elif '<fontcolor='in a:
+                            if len(a) < 12:
+                                print("\033[31m語法錯誤：<fontcolor=  value error:is no color input\033[33m")
+                                continue
+                            if a[11] == '紅':
+                                nr = nr + '\033[31m'
+                            elif a[11] == '綠':
+                                nr = nr + '\033[32m'
+                            elif a[11] == '黃':
+                                nr = nr + '\033[33m'
+                            elif a[11] == '藍':
+                                nr = nr + '\033[34m'
+                            elif a[11] == '紫':
+                                nr = nr + '\033[35m'
+                            elif a[11] == '青':
+                                nr = nr + '\033[36m'
+                            text = a + '\n'
+                            nr = nr + text
+                        else:
+                            text = a + "\n"
+                            nr = nr + text
+                        jsb[j]=nr
+                        print("新建成功!")
+                        sleep(2)
+                print("\033[?25l")
+        elif prog=="4":
+            for i in range(5):
+                print("\033[0mo 正在重啓")
+                sleep(0.2)
+                system("clear")
+                print("\033[94mo 正在重啓")
+                sleep(0.2)
+                system("clear")
+            print("\033[0m",end="")
+            sleep(1)
+            for i in range(3):
+                print("_")
+                sleep(0.5)
+                system("clear")
+                sleep(0.5)
+            sleep(1)
+            password_yz=input("請輸入您的密碼以驗證身份:")
+            while password_yz!=password:
+                password_yz=input("\033[91m密碼錯誤，請輸入您的密碼:")
+            print("\033[94mo 歡迎"+name)
+        elif prog=="5":
+            print("\033[101m  \033[0m\033[102m  \033[0m")
+            print("\033[104m  \033[0m\033[103m  \033[0mPan\033[91mTouch Speed Edition")
+            print("\033[0mHOTM Pan")
+            print("版本3.65(內部版本 2.0.1測試版本)")
+            print("版權所有 ?2021 HOTM Workshop。保留所有權利。")
+            print("PanTSE 操作系統及其用戶界面受中國大陸和其他國家/地區的商標法和其他待頒布或已頒布的知識産權法保護")
+            input("看完按Enter")
+        elif prog=="6":
+            print("\033[0mHOTM Pan[版本3.65.3935]")
+            print("版權所有 (c) 2021 HOTM Workshop。保留所有權利。")
+            while 1:
+                print("C:\\local>",end="")
+                dos=input()
+                if dos=="help":
+                    print("有關某個命令的詳細信息，請鍵入help命令名")
+                    print("break    退出cmd程序，這與exit是壹樣的")
+                    print("clear    清屏")
+                    print("cmd      打開壹個新的Pan命令解釋窗口")
+                    print("exit     退出cmd程序")
+                    print("help     提供Pan的所有命令代碼信息")
+                    print("panver   查看Pan的版本")
+                    print("bsod     自動藍屏")
+                    print("shutdown 關機")
+                elif dos=="clear":
+                    qing()
+                elif dos=="cmd":
+                    print("HOTM Pan[版本3.65.3935]")
+                    print("版權所有 (c) 2021 HOTM Workshop。保留所有權利。")
+                elif dos=="break" or dos=="exit":
+                    break
+                elif dos=="panver":
+                    print("HOTM Pan[版本3.65.3935]")
+                elif dos=="bsod" or dos=="shutdown":
+                    print("請稍等\n正在退出CMD")
+                    break
+                elif dos=="modify":
+                    user=input("新用戶名:")
+                    password=input("新密碼:")
+                    print("修改成功!")
+                else:
+                    print("\""+dos+"\"不是壹個命令代碼，請檢查拼寫。")
+            if dos=="bsod":
+                qing()
+                error("Cannot perform normal shutdown")
+                break
+            elif dos=="shutdown":
+                for i in range(5):
+                    print("\033[0mo 正在關機")
+                    sleep(0.2)
+                    system("clear")
+                    print("\033[94mo 正在關機")
+                    sleep(0.2)
+                    system("clear")
+                sleep(1)
+                qing()
+                print("\033[92m現在你（妳）可以安全地關閉你（妳）的電腦了\033[8m")
+                break
+        elif prog=="7":
+            qing()
+            print("\033[33m+=================有道翻譯官=================+")
+            print("\033[32m此翻譯機可以 中 > 英   英 > 中   日 > 中   韓 > 中")
+            print("\033[34m             輸入中文  輸入英文  輸入日文  輸入韓文")
+            input("\033[36m+=================回車鍵開始=================+")
+            qing()
+            content = str(input('\033[33m請輸入你（妳）要翻譯的內容：'))
+            data = {'doctype':'json','type':'AUTO','i':content}
+            url = "http://fanyi.youdao.com/translate"
+            r = requests.get(url,params=data)
+            result = r.json()
+            target = result['translateResult'][0][0]["tgt"]
+            print("\033[36m翻譯結果："+target)
+            input("\033[32mEnter鍵結束。")
+        elif prog=="8":
+            try:
+                a("1.導航 2.AQI空氣質量檢測 3.天氣預報 ")
+                sleep(1)
+                a("請問您需要什麽？")
+                ans=int(input(""))
+                if ans==1:        
+                    start=input("起點：")
+                    end=input("終點：")
+                    city=input("所在城市：")
+                    route_list=get_routes(start,end,city)
+                    len1=len(route_list)
+                    if len1>0:
+                        for i in range(len1):
+                            print(i+1,":",route_list[i])
+                            sleep(1)
+                        a("請選擇要搭乘的路線：")
+                        print()
+                        num=input("")
+                        system("clear")
+                        scale=15
+                        for i in range(scale+1):
+                            aaa = '*'*i
+                            bbb = '.'*(scale-i)
+                            ccc =(i/scale)*100
+                            print("\r\033[1;32m{:^3.0f}%[{}->{}]".format(ccc,aaa,bbb),end='')
+                            sleep(0.6)
+                        system("clear")
+                        num=int(num)
+                        num=num-1
+                        bus_list=get_sites(route_list,num)
+                        len2=len(bus_list)
+                        a("\033[36m途徑以下站點：")
+                        for i in range(len2):
+                            print(i+1,":",bus_list[i])
+                            sleep(1)
+                        sleep(15)
+                        system("clear")
+                    else:
+                        a("您已在目的地附近!")
+                        system("clear")
+                if ans==2:
+                    city = input("請輸入城市名:")
+                    if len(city) > 1:
+                        pollution = AQI(city)
+                        print(pollution)
+                    else:
+                        print("輸入錯誤")
+                    if pollution < 50:
+                        print("你（妳）可以出去了")
+                    elif pollution < 100:
+                        print("如果你（妳）對空氣質量敏感，請呆在家裏")
+                    elif pollution < 150:
+                        print("勸告家裏老人和小孩不要出去")
+                    elif pollution < 200:
+                        print("是人就別出去")
+                    elif pollutoin < 300:
+                        print("呆在家裏吧，外面空氣質量炒雞辣雞")
+                    else:
+                        print("注意城市的空氣質量,減少汙染")
+                        sleep(5)
+                    system("clear")
+                if ans==3:
+                    area = input("請問你（妳）要查詢的地區是：")
+                    temp1 = air_temp(area,1)
+                    speed1 = air_speed(area,1)
+                    print("溫度：",temp1,"℃\n    風速",speed1,"米/秒")
+            except:
+                print("世界上最遙遠的距離就是沒網。\033[34m檢查設置")
+        elif prog=="9":
+            #運行正式版會崩，這裏用極速版
+            print("\033[91m檢測到您的電腦性能不佳，已自動切換成極速版\033[0m")
+            sleep(0.5)
+            qing()
+            if llqjh==0:
+                key=input("您當前運行的程序可能會損害您的計算機，確定繼續運行嗎(Y|N)")
+                if key=="Y" or key=="y":
+                    password_yz=input("請輸入您的密碼以激活:")
+                    while password_yz!=password:
+                        password_yz=input("\033[91m密碼錯誤，請輸入您的密碼:")
+                    print("\033[93mo 激活成功")
+                    key=str(randint(100,999))+"-"+str(randint(1000000,9999999))
+                else:
+                    print("好的，您取消了激活。")
+                    key=None
+            ck=["c++","C++","星光工作室","霍格沃茲工作室","諾耀工作室","星斬工作室","Scratch","scratch","Python","python","css","CSS","HTML","html","Html","PHP","php","Php","javascript","js","JavaScript","JS","秦浩銘","PEN果公司","PEN果工作室","酷喵工作室","CPB防栗局","cpb防栗局","Cpb防栗局","漫威工作室","馬子錦","缪子航","月高工作室","潘夕習","C語言","星河工作室","酷喵浏覽器","易語言","使用須知","金恺文","幫助","陳妍悅","王銘煊","茜文"];
+            f=0;
+
+            if 1:
+                system("export xterm=TERM&&clear")#不想看見編譯成功
+                while(1):
+                    print("社區詞典_酷喵搜索       dic.hotm.cn/\033[90mkumiao.url?\033[0m\n");
+                    print("————————————————————————————————————————————————————\n");
+                    print("                         \033[34m酷\033[94mku\033[91mmiao\033[31m喵");
+                    print("                    \033[94m┌───────────────────┐");#水印
+                    print("                    \033[94m│                   \033[94m│\033[000m");#防僞
+                    print("                    \033[94m└───────────────────┘");
+                    print("\033[4A                  \033[000m")
+                    print("\033[?25h")
+                    a=input("\033[94m                    |\033[0m")
+                    print("\033[0m")
+                    system("clear")
+                    if llqjh==0:
+                        print("無法連接到網頁，請確認網絡正常工作，再確認有沒有激活Pan。")
+                        a="退出"
+                    print(a+"_酷喵百科       dic.hotm.cn/\033[90mkumiao.url?wd="+a+"\033[0m\n");
+                    print("————————————————————————————————————————————————————\n");
+                    if(a==ck[0] or a==ck[1]):
+                       b('''C++是C語言的繼承，它既可以進行C語言的過程化程序設計，又可以進行以抽象數據類型爲特點的基于對象的程序設計，還可以進行以繼承和多態爲特點的面向對象的程序設計。C++擅長面向對象程序設計的同時，還可以進行基于過程的程序設計，因而C++就適應的問題規模而論，大小由之
+                         C++不僅擁有計算機高效運行的實用性特征，同時還致力于提高大規模程序的編程質量與程序設計語言的問題描述能力。
+                         中文名:C++語言 外文名:The C++ Programming Language/c plus plus 類    別:計算機程序設計語言 創始人:Bjarne Stroustrup 創始公司:貝爾實驗室 基本內容:類、封裝、重載、繼承、模版''')
+                    elif(a==ck[2]): 
+                        b("星光工作室(Star Light,簡稱SR)，2020年2月28日入駐學而思編程社區，主要部門有教育部和科技研發部；以優秀作品著稱，公認學而思最腳踏實地的工作室作品。涉及爬蟲、pygame、tkinter和python終端輸出。口號有:不斷創新創新永遠是我們的口號，探索探索再探索，學習學習再學習！技術黨擁有涉及許多方面的技術人才，打造良好的學習環境。Idea創意使我們不甘平庸，創意使我們繼續向前")
+                    elif(a==ck[3]): 
+                        b("霍沃格茲工作室于2020年3月9日由陳張遠致成立，內部有大量的優秀成員，歡迎大家進入(絕非打廣告！)")
+                    elif(a==ck[4]): 
+                        b("諾耀工作室于2020年3月13日由創始人李佳諾所建。有自己的官網：http:#nuoyaogzsguanfang.cn。創建了“諾耀工作室”的微信公衆號。目前在學而思，網易卡塔，小碼王等社區內總共作品有60+")
+                    elif(a==ck[5]): 
+                        b("星斬工作室于2020年1月30日成立，擁有20+成員，均承包不同語言，官方網站：www.starcutc.com。官方郵箱：starcutcn@163.com、starcut@starcutc.com。在學而思、編程貓、卡搭社區都有人員。")
+                    elif(a==ck[6] or a==ck[7]): 
+                        b("Scratch是麻省理工學院的“終身幼兒園團隊”開發的圖形化編程工具，主要面對青少年開放。\n目前已有1.4版、2.0版本（增加克隆積木，視頻偵測，Lego拓展積木）、3.0版本（增加文字朗讀、翻譯和Makey makey等選擇性下載擴展積木，並增加micro:bit和Lego mindstorms EV3拓展積木）。所有人都可以在任意版本中創作自己的程序。")
+                    elif(a==ck[8] or a==ck[9]): 
+                        b("Python是壹種跨平台的計算機程序設計語言。 是壹個高層次的結合了解釋性、編譯性、互動性和面向對象的腳本語言。最初被設計用于編寫自動化腳本(shell)，隨著版本的不斷更新和語言新功能的添加，越多被用于獨立的、大型項目的開發")#我是水印，我就藏在這裏
+                    elif(a==ck[10] or a==ck[11]): 
+                        b("層疊樣式表(英文全稱：Cascading Style Sheets)是壹種用來表現HTML（標准通用標記語言的壹個應用）或XML（標准通用標記語言的壹個子集）等文件樣式的計算機語言。CSS不僅可以靜態地修飾網頁，還可以配合各種腳本語言動態地對網頁各元素進行格式化。\nCSS 能夠對網頁中元素位置的排版進行像素級精確控制，支持幾乎所有的字體字號樣式，擁有對網頁對象和模型樣式編輯的能力")
+                    elif(a==ck[12] or a==ck[13] or a==ck[14]): 
+                        b("HTML稱爲超文本標記語言，是壹種標識性的語言。它包括壹系列標簽．通過這些標簽可以將網絡上的文檔格式統壹，使分散的Internet資源連接爲壹個邏輯整體。HTML文本是由HTML命令組成的描述性文本，HTML命令可以說明文字，圖形、動畫、聲音、表格、鏈接等。")
+                    elif(a==ck[15] or a==ck[17] or a==ck[16]): 
+                        b("PHP即“超文本預處理器”，是壹種通用開源腳本語言。PHP是在服務器端執行的腳本語言，與C語言類似，是常用的網站編程語言。PHP獨特的語法混合了C、Java、Perl以及 PHP 自創的語法。利于學習，使用廣泛，主要適用于Web開發領域。")#我還能藏這
+                    elif(a==ck[20] or a==ck[18] or a==ck[19] or a==ck[21]): 
+                        b("JavaScript（簡稱“JS”） 是壹種具有函數優先的輕量級，解釋型或即時編譯型的編程語言。雖然它是作爲開發Web頁面的腳本語言而出名的，但是它也被用到了很多非浏覽器環境中，JavaScript 基于原型編程、多範式的動態腳本語言，並且支持面向對象、命令式和聲明式（如函數式編程）風格。")
+                    elif(a==ck[22]): 
+                        b("秦浩銘，漫威工作室室長，本詞典提供方之壹(另壹個是缪子航)，他打破了壹個個不可能的紀錄(如大屏logo等)\n讓人很遺憾的是，秦浩銘于2020年4月18日離開社區，漫威工作室因沒有室長逐漸瓦解")
+                    elif(a==ck[23] or a==ck[24]): 
+                        b("PEN果工作室(MOGO,中文名筆果)，成立于2019年6月6日，旗下有酷喵工作室，Microsoft工作室，編程行業技術研究進軍領導者")
+                    elif(a==ck[25]): 
+                        b("酷喵(kumiao),PEN果旗下工作室，成立于2019年1月1日，于2019年6月6日被缪子航收購並擔任其室長。")#水印潘夕習
+                    elif(a == ck[26] or a == ck[27] or a == ck[28]): 
+                        b("CPB防栗局(SEVA)，是著名人物與作品的發源地。")
+                    elif(a==ck[29]): 
+                        b("漫威工作室(MARVEL)創建于2019年10月23日，室長是秦浩銘，成員最多達到50+。\n2020年4月18日，秦浩銘離開社區，漫威逐漸瓦解")
+                    elif(a==ck[30]): 
+                        b("星河室長馬子錦(馬禿頭)。2019年8月28日建立星河工作室；創造了slow函數，即逐字輸出，現在人們在編程社區編程，壹定會用到slow函數，這就得感謝他的功勞了。")
+                    elif(a==ck[31]): 
+                        b("缪子航，PEN果工作室室長，本詞條提供方之壹(詳見\"秦浩銘\"詞條)")
+                    elif(a==ck[32]): 
+                        b("月高工作室于2019年11月23日由創始人潘夕習成立，具有代表作《跳舞的線》。")#I am水印
+                    elif(a==ck[33]): 
+                        b("潘夕習，月高工作室室長，本詞典提供方")
+                    elif(a==ck[34]): 
+                        b("C語言是壹門面向過程的、抽象化的通用程序設計語言，廣泛應用于底層開發。C語言能以簡易的方式編譯、處理低級存儲器。C語言是僅産生少量的機器語言以及不需要任何運行環境支持便能運行的高效率程序設計語言。盡管C語言提供了許多低級處理的功能，但仍然保持著跨平台的特性，以壹個標准規格寫出的C語言程序可在包括類似嵌入式處理器以及超級計算機等作業平台的許多計算機平台上進行編譯")#有評論區?
+                    elif(a==ck[35]): 
+                        b("星河工作室是壹個成立半年的工作室\n半年的沈澱使得星河工作室壹躍上前,成爲社區前三工作室\n星河工作室壹直要求:\"高質量,高科技,高素養\"\n我們工作室曾經遇到許多挫折,甚至倒閉過壹段時間\n但是... 我們撐下來了,我們壹起努力,壹起呐喊) 有難同當,有福同享) 最後,我們成功的走到了現在!\n壹個工作室的核心不是人數,也不是技術,是團結")
+                    elif(a==ck[36]): 
+                        b("酷喵浏覽器{PEN果研發，李承竣、秦浩銘、潘夕習代理}\n原【酷喵搜索】\n酷喵浏覽器適配于各種電腦以及手機(Alpha)，【極速版】支持XP/2000/9x/Vista等老系統。酷喵浏覽器采用【PEN果自研PKEN核心引擎以及GMS搜索引擎（PEN果自研引擎）】，實現了{極速，流暢，無惡意程序等多方面優點}。目前正在開發插件技術")#是不是水印放太少了
+                    elif(a==ck[37]): 
+                        b("易語言（EPL）是壹門以中文作爲程序代碼編程語言，其以“易”著稱，創始人爲吳濤。易語言早期版本的名字爲E語言。其最早的版本的發布可追溯至2000年9月11日。創造易語言的初衷是進行用中文來編寫程序的實踐，方便中國人以中國人的思維編寫程序，並不用再去學習西方思維。易語言的誕生極大的降低了編程的門檻和學習的難度。從2000年以來，易語言已經發展到壹定的規模，功能上、用戶數量上都十分可觀。")
+                    elif(a==ck[38]):
+                        print( "酷喵浏覽器【使用須知】 | {PEN果公司}授權使用 |"  )
+                        print( "歡迎使用【酷喵浏覽器】，謝謝你（妳）的觀看！\n謝謝點贊的人/謝謝觀看的人/謝謝使用的人！"  )
+                        print( "酷喵浏覽器Python版網址鏈接：↓\ncode.xueersi.com/home/project/detail?lang=code&pid=5781119&version=python&form=python&langType=python"  )
+                        print( "酷喵浏覽器C++版網址鏈接：↓\ncode.xueersi.com/home/project/detail?lang=code&pid=5291453&version=cpp&form=cpp&langType=cpp"  )
+                        print( "沒有使用的同學可以先去體驗壹下哦！（還有Beta版哦！）"  )
+                        print( "1、酷喵浏覽器持續更新1年（或更久），持續更新日期截至2021.04.20（或許會繼續更新）"  )
+                        print( "2、酷喵浏覽器開源協議：\n(1)開源是使同學們更好地了解程序，不是用于抄襲\n(2)轉載請標明版權（改編請標明原程序制作商的名稱【PEN果公司】）\n(3)開源不僅僅是公開源碼，源碼裏還有很多【作者寄語Beta】\n(4)歡迎提供【開源詞庫】\n(5)不歡迎大家抄襲/可以學習/可以轉載/可以觀摩/可以收藏"  )
+                        print( "3、酷喵浏覽器的詞庫仍在開發中，暫時使用【無敵百科的詞庫】，特此鳴謝{秦浩銘?2020}"  )#97行水印20號畫的
+                        print( "4、歡迎任何人投稿加入酷喵浏覽器，謝謝"  )
+                        print( "5、酷喵浏覽器點贊的人可獲得更多權益（詳見酷喵浏覽器搜索【點贊的人】）"  )
+                        print( "6、酷喵浏覽器使用{PEN果自研PKEN核心引擎以及GMS搜索引擎（PEN果自研引擎）}，"  )
+                        print( "   注：此搜索引擎/核心引擎均爲【開源引擎】，歡迎大家的使用（但必須標明版權）"  )
+                        print( "7、酷喵浏覽器3大特權：\n（1）浏覽器持續更新 \n（2）歡迎任何人提供詞庫/人物 \n（3）SVIP般的體驗，快速打開，快速搜索詞庫，無限速服務，Windows 95及以上版本均支持使用/Mac OS 5(System 5)以上版本：均支持使用"  )
+                        print( "請按任意鍵繼續...")
+                        system("read anykey")#按任意鍵繼續 
+                    elif(a==ck[39]): 
+                        b("金恺文，男，11歲，生于2009年8月5日，IQ120，EQ105，霍格沃茨工作室程序管理員，代表作——HOGWARS電腦：https://code.xueersi.com/home/project/detail?lang=code&pid=4177436&version=python&form=python&langType=python，目前Python等級3級(喂，這樣竊取個人隱私不好吧)")
+                    elif a=="退出":
+                        print("\033[44m")
+                        system("clear")
+                        print("請稍後......\n酷喵浏覽器正在關閉\033[?25l");break;
+                    elif(a==ck[40]):
+                        print("不知道該搜索什麽?現在支持搜索的詞條有(有的是拼寫不同的同義詞，不算詞條內，不想玩了輸\"退出\"):\n")
+                        sleep(1)
+                        for i in range(41):
+                            print(ck[i])
+                            sleep(0.05)
+                        print("共27個詞條\n")
+                        sleep(2)
+                        print("請按任意鍵繼續...")
+                        system("read anykey")
+                    elif(a==ck[41]):
+                        b("陳妍悅，夢時工作室成員，著名作品有《閃耀星途》，且有許多粉絲，和茜文是姐妹關系，缪子航的妹妹。");
+                    elif(a==ck[42]):
+                        b("王銘煊,女，曾多次抄襲他人作品，還喜歡抄襲logo（比如遠光燈的logo）；，此人不僅不承認自己的錯誤，還繼續诋毀他人。（大家應該都知道他的爲人了吧，大家有沒有發現這個人的介紹沒有小卡片的標識【以爲我覺得他不應該有小卡片的標識】）");
+                    elif(a==ck[43]):
+                        b("茜文，女，天蠍座，繁星橋陽和魔幻工作室室長，PEN果工作室副室長，霍格沃茨審核員，遠光燈記者，劉炳毅粉絲，茜烨的姐姐。");
+                    else:#109行那個，水印不是打字打出來的嗎，你（妳）怎麽說畫？？？
+                        print("對不起，本詞典暫無此詞條，請檢查拼寫或向開發者聯系微信:pjf420137013 QQ:420137013\n")
+                        #你（妳）以爲水印是幹嘛的，防僞呗！
+                        #我們是壹家的
+                        #樓上說的對
+                    sleep(3)
+                    system("export xterm=TERM&&clear")
+                    continue
+        elif prog=="10":
+            print("\033[0mSystem(C:)\n6.18GB可用/8.00GB")
+            print("\033[0m?? CD-ROM驅動器(D:)")
+            if ds_3==1:
+                print("0Byte可用/6.55GB NTFS磁盤格式")
+            else:
+                print("驅動器不可用 RAW磁盤格式")
+            System32=input("輸入文件名，(如C:):")
+            qing()
+            if System32=="C:":
+                print("名稱    類型           修改日期               大小")
+                print("Start   快捷方式(.lnk) 2020年6月14日 13:23    1KB")
+                print("Program 文件夾         2021年1月27日 17:10    119.9MB")
+                print("local   文件夾         2020年6月14日 13:25    1.7GB")
+                print(name+"   文件夾         2020年12月7日 17:54    100MB")
+                System32=input("輸入文件名，(如C:):")
+                qing()
+                if System32=="local":
+                    print("名稱    類型            修改日期               大小")
+                    print("Start   軟件(.exe)      2020年6月14日 13:23    1.3GB")
+                    print("Touch   擴展驅動(.dll)  2020年6月14日 13:26    153MB")
+                    print("program 軟件(.exe)      2020年6月14日 13:27    245MB")
+                    print("System  配置文件(.ini)  2020年6月14日 13:30    1MB")
+                    print("Startup 軟件(.exe)      2020年6月14日 13:31    992KB")
+                elif System32=="Program":
+                    print("名稱    類型           修改日期               大小")
+                    print("program 軟件(.exe)     2020年7月19日 13:23    117MB")
+                    print(".drives 擴展驅動(.dll) 2021年1月27日 17:10    2.9MB")
+                    print(".drives 軟件服務(.pnc) 2021年1月27日 17:14    1KB")
+                    print("Taiwan  語言包(.bin)   2021年1月27日 17:15    1KB")
+                    print("Notes   數據(.dat)     2020年6月30日 23:31    1KB")
+                    System32=input("輸入文件名，(如C:):")
+                    qing()
+                    if System32==".drives":
+                        b("該服務包括:第三方程序啓動服務(已啓用)")
+                    elif System32=="Taiwan":
+                        sleep(0.2)
+                        print("This program cannot run in x64 mode.")
+                    else:
+                        print("該文件不存在或不可更改")
+                elif System32==name:
+                    print("名稱    類型            修改日期               大小")
+                    print("user    擴展驅動(.dll)  2020年12月7日 17:56    1KB")
+                    print("data    備份文件(.gho)  2020年12月7日 17:57    1KB")
+                else:
+                    print("該文件不存在")
+            elif System32=="D:" and ds_3==1:
+                print("名稱    類型            修改日期               大小")
+                print("autorun 安裝信息(.inf)  2021年1月25日 16:58    1KB")
+                print("icon    圖標(.ico)      2015年7月18日 13:26    5KB")
+                print("Pan 3.0 軟盤文件(.img)  2020年9月25日 13:27    3.71GB")
+                print("Pan TO  軟盤文件(.img)  2020年9月25日 13:30    1.86GB")
+                print("Pan103  軟盤文件(.flp)  2020年9月25日 13:31    956MB")
+                System32=input("輸入文件名，(如C:):")
+                qing()
+                if System32=="autorun":
+                    b("[autorun]\nICON=icon.ico,0")
+                elif System32=="Pan 3.0":
+                    print("名稱    類型            修改日期               大小")
+                    print("Pan 3.0 虛擬機配置(.vmx)2021年1月25日 16:58    4KB")
+                    print("Pan 3.0 磁盤驅動(.vmdk) 2020年7月18日 13:26    3.70GB")
+                elif System32=="Pan TO":
+                    print("名稱    類型            修改日期               大小")
+                    print("Pan TO  虛擬機配置(.vmx)2021年1月25日 16:58    4KB")
+                    print("Pan TO  磁盤驅動(.vmdk) 2020年7月18日 13:26    1.85GB")
+                elif System32=="Pan103":
+                    print("名稱    類型            修改日期               大小")
+                    print("Pan103  虛擬機配置(.vmx)2021年1月25日 16:58    4KB")
+                    print("Pan103  磁盤驅動(.vmdk) 2020年7月18日 13:26    955MB")
+                else:
+                    print("該文件不存在或不可更改")
+            else:
+                if System32=="D:":
+                    print("無法讀取這個磁盤，請檢查磁盤是否被拔出或移動，再檢查是否安裝磁盤管理軟件。")
+                else:
+                    print("該磁盤不存在")
+        elif prog=="11":
+            print("\033[0m1.開機和登錄 2.軟件 3.浏覽器問題 4.升級Pan 5.重裝系統")
+            rm=input()
+            qing()
+            if rm=="1":
+                b("1)360報告卡頓現象\n清理電腦垃圾或重啓機器即可，如問題嚴重，請換個浏覽器(推薦Chrome)或重裝系統(推薦win7，iPadOS)。\n2)基本信息可以不填麽?\n可以，但是最好填(也可以在開始菜單打開命令提示符輸入modify更改)，姓名欄可以寫您的真實名字，也可以寫您的昵稱。")
+                b("\n3)用電腦能正常運行PanTSE嗎?\n能，系統最好xp以上，如果只想體驗觸摸系統(平板系統)，建議使用iPad\n4)爲什麽我壹啓動機器就會報告藍屏?\n可能是您在開機時輸入了壹些東西或者系統發生了壹些小錯誤導致的，如果問題嚴重，可以降級到PanNT4")
+                b("\n5)爲什麽我輸入自己的密碼提示錯誤?\n可能您拼寫不正確或別人更改了您的密碼，重啓機器即可解決。")
+            elif rm=="2":
+                b("0功能，關閉機器\n1功能，休眠，您可以在這時候放松壹下，放松完按Enter鍵重新進入開始菜單\n2功能，計算器，解決生活中的數學問題，如果您在做作業，不建議這樣做。")
+                b("3功能，記事本，將壹天要做的事記錄下來，Pan會幫你（妳）存儲到c盤中。\n4功能，重啓，如果您的機器遇到問題可以打開此功能，如果是大問題，請按停止鍵再按運行鍵。\n5功能，系統屬性，可以查看系統的基本信息。(也可以在命令提示符輸入panver查看版本)\n")
+                b("6功能，MS-DOS，現在改名爲CMD,用在壹些專業的行業當中\n7功能，有道，可以輕松翻譯英，韓，日，中四國語言\n8功能，地圖，如果迷路了，可以通過它來找到回家的路(前提是你（妳）得有錢坐公交)\n")
+                b("9功能，浏覽器，運行正式版會崩，所以這裏統壹用極速版了(酷喵的，已經授權了)\n10功能，計算機(我可不是2功能哦)，類似于PanNT4的\"我的電腦\"\n11功能就是我啦，可以給剛剛入坑的Pan小白壹些幫助\n12功能，應用商店，可以購買應用或找回已卸載的原生應用")
+            elif rm=="3":
+                b("1)在浏覽器運行過程中藍屏了怎麽辦?\n進入TSE的源碼http://code.xueersi.com/ide/code/6421076找到【浏覽器】的腳本，更改壹下出錯源碼位置，或者重新按運行鍵\n")
+                b("2)總是提醒該詞條不存在是怎麽肥事?\n檢查拼寫是否正確或者輸入\"幫助\"看看浏覽器裏面都有什麽詞條。\n")
+                b("3)超長了怎麽辦?\n重按運行鍵即可。\n4)爲什麽浏覽器退不出來?\n等浏覽器返回到主頁，輸入\"退出\"即可。")
+            elif rm=="4":
+                b("如果您的電腦運行的是已經停止支持的Pan2.0或者是即將停止支持的Pan3.0，我們建議您升級到Pan2020及以上版本，謝謝配合！")
+            elif rm=="5":
+                setup()
+                print("\033[0m")
+            else:
+                print("該章節不存在")
+        elif prog=="12":
+            print("\033[42m")
+            qing()
+            print("A.??  掃雷  \033[41m原生\033[42m")
+            print("B.??  Diskgenius")
+            print("C.??  VMware Workstation 16")
+            print("D.??  360安全衛士")
+            print("E.??  拍拍戰爭")
+            prog=input("輸入想安裝的應用的字母:")
+            qing()
+            if prog=="A" and ds_1==0:
+                print("             ??  掃雷")
+                print("              HOGWARS")
+                print("識別爲被刪除的原生應用！是否恢複(Y|N)")
+                if input()=="Y":
+                    qing()
+                    print("正在恢複(更改program.exe)...")
+                    sleep(3)
+                    print("正在恢複(創建快捷方式)...")
+                    sleep(0.5)
+                    print("恢複成功！可在開始菜單查看！")
+                    ds_1=1
+                else:
+                    qing()
+                    print("好的，您取消了操作。")
+            elif prog=="B" and ds_2==0:
+                print("       ??  Diskgenius")
+                print("         易之數軟件")
+                print("√HOTM檢測通過 √HOGWARS檢測通過")
+                print("是否安裝(Y|N)")
+                if input()=="Y":
+                    qing()
+                    print("正在安裝(更改program.exe)...")
+                    sleep(3)
+                    print("正在安裝(創建快捷方式)...")
+                    sleep(0.5)
+                    print("安裝成功！可在開始菜單查看！")
+                    ds_2=1
+                else:
+                    qing()
+                    print("好的，您取消了操作。")
+            elif prog=="C" and ds_3==0:
+                print("         ??  VMware")
+                print("          威睿科技")
+                print("√HOTM檢測通過 √HOGWARS檢測通過")
+                print("是否安裝(Y|N)")
+                if input()=="Y":
+                    qing()
+                    print("正在安裝(更改program.exe)...")
+                    sleep(3)
+                    print("正在安裝(創建快捷方式)...")
+                    sleep(0.5)
+                    print("安裝成功！可在開始菜單查看！")
+                    ds_3=1
+                else:
+                    qing()
+                    print("好的，您取消了操作。")
+            elif prog=="D" and ds_4==0:
+                print("         ??  360安全衛士")
+                print("            奇虎科技")
+                print("√HOTM檢測通過 √HOGWARS檢測通過")
+                print("是否安裝(Y|N)")
+                if input()=="Y":
+                    qing()
+                    print("正在安裝(更改program.exe)...")
+                    sleep(3)
+                    print("正在安裝(創建快捷方式)...")
+                    sleep(0.5)
+                    print("安裝成功！可在開始菜單查看！")
+                    ds_4=1
+                else:
+                    qing()
+                    print("好的，您取消了操作。")
+            elif prog=="E" and ds_5==0:
+                print("         ?? 拍拍戰爭")
+                print("       RongChen's group")
+                print("×HOTM檢測未通過 √HOGWARS檢測通過")
+                print("是否安装(Y|N)")
+                if input()=="Y":
+                    qing()
+                    print("正在安裝(更改program.exe)...")
+                    sleep(3)
+                    print("正在安裝(創建快捷方式)...")
+                    sleep(0.5)
+                    print("安裝成功！可在開始菜單查看！")
+                    ds_5=1
+                else:
+                    qing()
+                    print("好的，您取消了操作。")
+            else:
+                print("該程序不存在或已經被安裝！")
+        elif prog=="13" and ds_1==1:
+            if 1:
+                print("9*9掃雷")
+                checkerboard = [0,"01","02","03","04","05","06","07","08","09"]
+                for i in range(10,82) :
+                    checkerboard += [str(i)]
+                mode = input("1.入門(6個雷) 2.簡單(8個雷) 3.普通(10個雷) 4.困難(12個雷) 5.超難(15個雷) 6.自定義(1~80個雷)")
+                set_comp = False
+                isyou = True
+                set_zone = 0
+                set_mine = 0
+                game_res = 0
+                dig = [True] + ([False] * 81)
+                game_checkwin = 0
+                def showcheckerboard() :
+                    system("clear")
+                    for i in range(9) :
+                        for i2 in range(1,9) :
+                            if "\033[3" in checkerboard[i*9+i2] :
+                                print(checkerboard[i*9+i2],end="\033[0m ")
+                            else :
+                                print(checkerboard[i*9+i2],end=" ")
+                        if "\033[3" in checkerboard[i*9+i2] :
+                            print(checkerboard[i*9+9] + "\033[0m")
+                        else :
+                            print(checkerboard[i*9+9])
+                def do_dig(zone) :
+                    global game_res
+                    global mine
+                    if mine[zone] == 1 :
+                        print("你（妳）挖到雷了!")
+                        print("遊戲結束")
+                        game_res = 2
+                    else :
+                        global dig
+                        global checkerboard
+                        global isyou
+                        dig[zone] = True
+                        if zone == 1 :
+                            if checkerboard[1] == "01" :
+                                if mine[2] + mine[10] + mine[11] == 0 :
+                                    checkerboard[1] = "  "
+                                    isyou = False
+                                    do_dig(2)
+                                    do_dig(10)
+                                    do_dig(11)
+                                else :
+                                    checkerboard[1] = "\033[34mM" + str(mine[2] + mine[10] + mine[11])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        elif zone == 9 :
+                            if checkerboard[9] == "09" :
+                                if mine[8] + mine[17] + mine[18] == 0 :
+                                    checkerboard[9] = "  "
+                                    isyou = False
+                                    do_dig(8)
+                                    do_dig(17)
+                                    do_dig(18)
+                                else :
+                                    checkerboard[9] = "\033[34mM" + str(mine[8] + mine[17] + mine[18])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        elif zone == 73 :
+                            if checkerboard[73] == "73" :
+                                if mine[64] + mine[65] + mine[74] == 0 :
+                                    checkerboard[73] = "  "
+                                    isyou = False
+                                    do_dig(64)
+                                    do_dig(65)
+                                    do_dig(74)
+                                else :
+                                    checkerboard[73] = "\033[34mM" + str(mine[64] + mine[65] + mine[74])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        elif zone == 81 :
+                            if checkerboard[81] == "81" :
+                                if mine[71] + mine[72] + mine[80] == 0 :
+                                    checkerboard[81] = "  "
+                                    isyou = False
+                                    do_dig(71)
+                                    do_dig(72)
+                                    do_dig(80)
+                                else :
+                                    checkerboard[81] = "\033[34mM" + str(mine[71] + mine[72] + mine[80])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        elif zone in [2,3,4,5,6,7,8] :
+                            if checkerboard[zone] == ("0" + str(zone)) :
+                                if mine[zone - 1] + mine[zone + 1] + mine[zone + 8] + mine[zone + 9] + mine[zone + 10] == 0 :
+                                    checkerboard[zone] = "  "
+                                    isyou = False
+                                    do_dig(zone - 1)
+                                    do_dig(zone + 1)
+                                    do_dig(zone + 8)
+                                    do_dig(zone + 9)
+                                    do_dig(zone + 10)
+                                else :
+                                    checkerboard[zone] = "\033[34mM" + str(mine[zone - 1] + mine[zone + 1] + mine[zone + 8] + mine[zone + 9] + mine[zone + 10])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        elif zone in [10,19,28,37,46,55,64] :
+                            if checkerboard[zone] == str(zone) :
+                                if mine[zone - 9] + mine[zone - 8] + mine[zone + 1] + mine[zone + 9] + mine[zone + 10] == 0 :
+                                    checkerboard[zone] = "  "
+                                    isyou = False
+                                    do_dig(zone - 9)
+                                    do_dig(zone - 8)
+                                    do_dig(zone + 1)
+                                    do_dig(zone + 9)
+                                    do_dig(zone + 10)
+                                else :
+                                    checkerboard[zone] = "\033[34mM" + str(mine[zone - 9] + mine[zone - 8] + mine[zone + 1] + mine[zone + 9] + mine[zone + 10])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        elif zone in [74,75,76,77,78,79,80] :
+                            if checkerboard[zone] == str(zone) :
+                                if mine[zone - 10] + mine[zone - 9] + mine[zone - 8] + mine[zone - 1] + mine[zone + 1] == 0 :
+                                    checkerboard[zone] = "  "
+                                    isyou = False
+                                    do_dig(zone - 10)
+                                    do_dig(zone - 9)
+                                    do_dig(zone - 8)
+                                    do_dig(zone - 1)
+                                    do_dig(zone + 1)
+                                else :
+                                    checkerboard[zone] = "\033[34mM" + str(mine[zone - 10] + mine[zone - 9] + mine[zone - 8] + mine[zone - 1] + mine[zone + 1])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        elif zone in [18,27,36,45,54,63,72] :
+                            if checkerboard[zone] == str(zone) :
+                                if mine[zone - 10] + mine[zone - 9] + mine[zone - 1] + mine[zone + 8] + mine[zone + 9] == 0 :
+                                    checkerboard[zone] = "  "
+                                    isyou = False
+                                    do_dig(zone - 10)
+                                    do_dig(zone - 9)
+                                    do_dig(zone - 1)
+                                    do_dig(zone + 8)
+                                    do_dig(zone + 9)
+                                else :
+                                    checkerboard[zone] = "\033[34mM" + str(mine[zone - 10] + mine[zone - 9] + mine[zone - 1] + mine[zone + 8] + mine[zone + 9])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        else :
+                            if checkerboard[zone] == str(zone) :
+                                if mine[zone - 10] + mine[zone - 9] + mine[zone - 8] + mine[zone - 1] + mine[zone + 1] + mine[zone + 8] + mine[zone + 9] + mine[zone + 10] == 0 :
+                                    checkerboard[zone] = "  "
+                                    isyou = False
+                                    do_dig(zone - 10)
+                                    do_dig(zone - 9)
+                                    do_dig(zone - 8)
+                                    do_dig(zone - 1)
+                                    do_dig(zone + 1)
+                                    do_dig(zone + 8)
+                                    do_dig(zone + 9)
+                                    do_dig(zone + 10)
+                                else :
+                                    checkerboard[zone] = "\033[34mM" + str(mine[zone - 10] + mine[zone - 9] + mine[zone - 8] + mine[zone - 1] + mine[zone + 1] + mine[zone + 8] + mine[zone + 9] + mine[zone + 10])
+                            else :
+                                if isyou :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                    if game_res == 0 :
+                        game_checkwin = 0
+                        for i in range(1,82) :
+                            if dig[i] != mine[i] :
+                                game_checkwin = game_checkwin + 1
+                        if game_checkwin == 81 :
+                            showcheckerboard()
+                            print("勝利!")
+                            print("遊戲結束")
+                            game_res = 1
+                if mode == "1" :
+                    while set_comp == False :
+                        set_zone = 0
+                        set_mine = 0
+                        mine = [0] * 82
+                        while set_zone < 81 and set_mine < 6 :
+                            if randint(1,81) <= 6 :
+                                mine[set_zone + 1] = 1
+                                set_mine = set_mine + 1
+                            set_zone = set_zone + 1
+                        if set_mine == 6 :
+                            set_comp = True
+                elif mode == "2" :
+                    while set_comp == False :
+                        set_zone = 0
+                        set_mine = 0
+                        mine = [0] * 82
+                        while set_zone < 81 and set_mine < 8 :
+                            if randint(1,81) <= 8 :
+                                mine[set_zone + 1] = 1
+                                set_mine = set_mine + 1
+                            set_zone = set_zone + 1
+                        if set_mine == 8 :
+                            set_comp = True
+                elif mode == "3" :
+                    while set_comp == False :
+                        set_zone = 0
+                        set_mine = 0
+                        mine = [0] * 82
+                        while set_zone < 81 and set_mine < 10 :
+                            if randint(1,81) <= 10 :
+                                mine[set_zone + 1] = 1
+                                set_mine = set_mine + 1
+                            set_zone = set_zone + 1
+                        if set_mine == 10 :
+                            set_comp = True
+                elif mode == "4" :
+                    while set_comp == False :
+                        set_zone = 0
+                        set_mine = 0
+                        mine = [0] * 82
+                        while set_zone < 81 and set_mine < 12 :
+                            if randint(1,81) <= 12 :
+                                mine[set_zone + 1] = 1
+                                set_mine = set_mine + 1
+                            set_zone = set_zone + 1
+                        if set_mine == 12 :
+                            set_comp = True
+                elif mode == "5" :
+                    while set_comp == False :
+                        set_zone = 0
+                        set_mine = 0
+                        mine = [0] * 82
+                        while set_zone < 81 and set_mine < 15 :
+                            if randint(1,81) <= 15:
+                                mine[set_zone + 1] = 1
+                                set_mine = set_mine + 1
+                            set_zone = set_zone + 1
+                        if set_mine == 15 :
+                            set_comp = True
+                else :
+                    mine2 = input("輸入雷數(1~80)")
+                    try :
+                        int(float(mine2))
+                    except :
+                        print("錯誤:非整數")
+                    else :
+                        mine2 = int(float(mine2))
+                        if mine2 > 80 :
+                            print("錯誤:雷數太高(最高爲80)")
+                        elif mine2 < 1 :
+                            print("錯誤:雷數太低(最低爲1)")
+                        else :
+                            while set_comp == False :
+                                set_zone = 0
+                                set_mine = 0
+                                mine = [0] * 82
+                                while set_zone < 81 and set_mine < mine2 :
+                                    if randint(1,81) <= mine2 :
+                                        mine[set_zone + 1] = 1
+                                        set_mine = set_mine + 1
+                                    set_zone = set_zone + 1
+                                if set_mine == mine2 :
+                                    set_comp = True
+                while game_res == 0 :
+                    showcheckerboard()
+                    isyou = True
+                    game_setzone = input("\033[0m請輸入操作格(01~81)")
+                    try :
+                        int(float(game_setzone))
+                    except :
+                        print("請輸入正確的數字!")
+                        sleep(0.5)
+                    else :
+                        if int(game_setzone) in list(range(1,82)) :
+                            game_zonectrl = input("請選擇操作 1.挖土 2.標旗/取消標旗 3.重選操作格")
+                            if game_zonectrl == "1" :
+                                game_setzone = int(float(game_setzone))
+                                do_dig(game_setzone)
+                            elif game_zonectrl == "2" :
+                                if checkerboard[int(game_setzone)] == game_setzone :
+                                    checkerboard[int(game_setzone)] = "\033[31m" + game_setzone
+                                elif checkerboard[int(game_setzone)] == "\033[31m" + game_setzone :
+                                    checkerboard[int(game_setzone)] = game_setzone
+                                else :
+                                    print("此處已經挖過!")
+                                    sleep(0.5)
+                        else :
+                            print("請輸入正確的數字!")
+                            sleep(0.5)
+        elif prog=="14" and ds_2==1:
+            print("\033[0mVirtualDisk(11.6GB)")
+            print("\033[94mSystem(C: 8.00GB) \033[94m備份GHOST(X: "+str(e)+"GB) 未分配("+str(wfp)+"GB)  \033[90mEFI恢複分區(ESP: 0.1GB)")
+            print("\033[90mCD-ROM驅動器(0Byte)")
+            print("CD-ROM驅動器(D: 0Byte)")
+            disk=input("\033[0m選擇要更改的分區(填寫盤符，沒有盤符填名稱，如E:)")
+            qing()
+            if disk=="C:" :
+                print("A.屬性 B.重新格式化")
+                disk=input()
+                qing()
+                if disk=="A":
+                    b("System(C:)")
+                    b("類型:本地磁盤 文件系統:NTFS")
+                    b("可用空間:6.18GB 總空間:8.00GB")
+                elif disk=="B":
+                    disk=input("你（妳）確定要格式化嗎(Y|N)?")
+                    qing()
+                    if disk=="Y":
+                        print("正在格式化...")
+                        sleep(3)
+                        print("格式化成功，重啓生效")
+                        sleep(2)
+                        print("檢測到C盤內無系統，自動切換到安裝系統模式")
+                        sleep(0.01)
+                        setup()
+                    else:
+                        print("好的，您取消了格式化")
+                else:
+                    print("該操作無效。")
+            elif disk=="ESP:":
+                print("A.查看文件 B.屬性")
+                disk=input()
+                qing()
+                if disk=="A":
+                    print("名稱    類型             修改日期               大小")
+                    print("BIOS    固件(.bin)       2020年6月14日 13:23    128KB")
+                    print("config  數據(.dat)       2020年7月6日 15:42     105KB")
+                elif disk=="B":
+                    b("EFI恢複分區(ESP:)")
+                    b("類型:本地磁盤 文件系統:FAT32")
+                    b("可用空間:99.77MB")
+                    b("總空間:100MB")
+                else:
+                    print("該操作無效。")
+            elif disk=="X:":
+                disk=input("A.壓縮卷 B.屬性 C.擴展卷\n")
+                print("\033[41m")
+                qing()
+                if disk=="A":
+                    print("歡迎使用壓縮卷功能\n本功能會幫助你（妳）壓縮X盤，節約出壹個空閑空間")
+                    print("正在查詢可用空間...")
+                    sleep(3)
+                    qing()
+                    print("歡迎使用壓縮卷\n本功能會幫助你（妳）壓縮X盤，節約出壹個空閑空間")
+                    print("可壓縮:"+str(e-0.25)+"GB\n\033[90mTIP:必須要預留0.25GB空間供磁盤有能力完成基本任務")
+                    disk=input("\033[94m輸入要壓縮的空間:")
+                    qing()
+                    if float(disk)>e-0.25:
+                        print("壓縮後的空間太小！請重新選擇！")
+                    else:
+                        print("正在壓縮...")
+                        wfp=wfp+float(disk)
+                        e=e-float(disk)
+                        sleep(2)
+                        print("壓縮成功！X盤剩余空間爲"+str(e)+"GB!")
+                elif disk=="B":
+                    print("備份GHOST(X:)")
+                    print("\033[94m可用空間:"+str(e-0.1)+"GB")
+                    print("已用空間:0.1GB")
+                    print("總容量:"+str(e)+"GB")
+                elif disk=="C":
+                    print("歡迎使用擴展卷功能\n本功能會幫助你（妳）擴大X盤")
+                    print("正在查詢可用空間...")
+                    sleep(3)
+                    qing()
+                    print("歡迎使用擴展卷功能\n本功能會幫助你（妳）擴大X盤")
+                    print("可擴展:"+str(wfp)+"GB\n")
+                    disk=input("\033[94m輸入要擴展的空間:")
+                    qing()
+                    if float(disk)>wfp:
+                        print("要擴展的空間太大！無法擴容！")
+                    else:
+                        print("正在擴展...")
+                        wfp=wfp-float(disk)
+                        e=e+float(disk)
+                        sleep(2)
+                        print("擴展成功！X盤剩余空間爲"+str(e)+"GB!")
+                else:
+                    print("該操作無效。")
+            elif disk=="未分配":
+                disk=input("A.屬性 B.與X盤合並")
+                if disk=="A":
+                    print("未分配")
+                    print("\033[92m已准備就緒！等待分配分區中")
+                    print("\033[0m總容量:"+str(wfp)+"GB")
+                elif disk=="B":
+                    print("歡迎使用合並功能\n本功能會幫助你（妳）將未分配與X盤合並")
+                    print("正在查詢可用空間...")
+                    sleep(3)
+                    qing()
+                    print("歡迎使用合並功能\n本功能會幫助你（妳）將未分配與X盤合並")
+                    print("可擴展:"+str(wfp)+"GB\n")
+                    disk=input("\033[94m輸入要擴展的空間:")
+                    qing()
+                    if float(disk)>wfp:
+                        print("要擴展的空間太大！無法擴容！")
+                    else:
+                        print("正在擴展...")
+                        wfp=wfp-float(disk)
+                        e=e+float(disk)
+                        sleep(2)
+                        print("擴展成功！X盤剩余空間爲"+str(e)+"GB!")
+            else:
+                print("該磁盤不存在")
+        elif prog=="15" and ds_3==1:
+            vm(password,name)
+        elif prog=="16" and ds_4==1:
+            while 1:
+                a360=input("1.我的電腦 2.軟件管家 X.退出")
+                qing()
+                if a360=="1":
+                    print("\033[32m+===============歡迎使用360電腦性能測試機===============+")
+                    input("\033[36m                      Enter鍵開始測試。             ")
+                    qing()
+                    print("\033[33m延時:測試中...")
+                    print("\033[36m登錄:等待中...")
+                    print("\033[34m版本:等待中...")
+                    print("\033[35m更多:敬請期待")
+                    #測延時
+                    t1_c = time()
+                    sleep(1)
+                    t2_c = time()
+                    t_c = t2_c - t1_c
+                    if t_c > 1:
+                        t_c2 = t_c - 1
+                        if t_c2 > 0.21:
+                            yanshi = str(t_c2)+"秒，您的延時非常長，說明網絡非常差，建議您進行360網絡診斷。"
+                        elif t_c2 > 0.12:
+                            yanshi = str(t_c2)+"秒，您的延時極長，說明網絡極差。"
+                        elif t_c2 > 0.01:
+                            yanshi = str(t_c2)+"秒，您的延時較長，說明網絡有點差。"
+                        elif t_c2 > 0.004:
+                            yanshi = str(t_c2)+"秒，您的延時有壹點點長，可能是卡頓問題，此爲正常~"
+                        elif t_c2 <= 0.002:
+                            yanshi = str(t_c2)+"秒，您的延時非常正常，繼續保持哦~"
+                        else:
+                            yanshi = str(t_c2)+"秒，無法識別類型~"
+                    elif t_c == 1:
+                        yanshi = "太棒啦，您的電腦沒有延時~"
+                    elif t_c < 1:
+                        yanshi = "您的電腦太快啦，比Pan系統運行速度還快，快到無法shi。"
+                    else:
+                        yanshi = "fail(測試失敗)"
+                    #測登錄
+                    qing()
+                    print("\033[33m延時:測試完成")
+                    print("\033[36m登錄:測試中...")
+                    print("\033[34m版本:等待中...")
+                    print("\033[35m更多:敬請期待\033[8m")
+                    if name:
+                        tryy = "您已創建賬號並登錄"
+                    else:
+                        tryy = "您沒有賬號或沒有登錄"
+                    #測更新
+                    qing()
+                    print("\033[0m\033[33m延時:測試完成")
+                    print("\033[36m登錄:測試完成")
+                    print("\033[34m版本:測試中...")
+                    print("\033[35m更多:敬請期待\033[0m")
+                    ce3 = "Pan版本:最新版本 python編譯器版本:{} 您的系統:{}{}".format(sys.version[0:5],platform.platform(),platform.architecture()[0])
+                    sleep(2)
+                    qing()
+                    print("\033[33m延時:測試完成")
+                    print("\033[36m登錄:測試完成")
+                    print("\033[34m版本:測試完成")
+                    print("\033[35m更多:敬請期待\033[0m")
+                    sleep(0.1)
+                    qing()
+                    print("\033[32m測試結果:")
+                    print("\033[36m延時:",yanshi)
+                    print("\033[36m登錄:",tryy)
+                    print("\033[34m版本:",ce3)
+                    print("\033[35m此測試數據絕對准確。")
+                    input("\033[31mEnter返回主頁")
+                elif a360=="2":
+                    if ds_2==1:
+                        print("1.?? Diskgenius \033[93m5星/5星\033[0m19.17MB")
+                    if ds_3==1:
+                        print("2.?? VMware Workstation 16\033[93m4.5星/5星\033[0m6.61GB")
+                    if ds_4==1:
+                        print("3.?? 360安全衛士\033[93m1.4星/5星\033[0m18.19MB")
+                    if ds_5==1:
+                        print("4.?? 拍拍戰爭\033[93m3.9星/5星\033[0m2.8MB")
+                    a360=input("輸入要卸載的程序的序號:")
+                    qing()
+                    print("正在卸載...")
+                    if a360=="1":
+                        ds_2=0
+                    elif a360=="2":
+                        ds_3=0
+                    elif a360=="3":
+                        ds_4=0
+                    elif a360=="4":
+                        ds_5=0
+                    else:
+                        print("程序不存在或已經卸載")
+                elif a360=="X":
+                    break
+                else:
+                    print("該選項不存在")
+                sleep(3)
+                qing()
+                continue
+        elif prog=="17" and ds_5==1:
+            print("\033[93m通知:這不是玩遊戲的最佳分辨率，最佳分辨率是1366×768")
+            while 1:
+                pp=input("(X鍵退出)\033[91mA.單人賽 \033[92mB.生存大亂鬥 \033[90mC.3v3(即將推出) D.5v5(即將推出) \033[93mE.玩法說明\033[0m")
+                qing()
+                if pp=="A":
+                    m=1
+                    m_d=1
+                    d=0
+                    d_d=0
+                    df=0
+                    xl=0
+                    xl_d=0
+                    print("你（妳）("+str(ID)+") VS 正在匹配...")
+                    sleep(3)
+                    qing()
+                    print("你（妳）("+str(ID)+") VS 用戶"+str(randint(10000,99999999)))
+                    sleep(1)
+                    qing()
+                    while m!=0 and m_d!=0:
+                        print("A.防禦 B.蓄力",end="")
+                        if d>0:
+                            print(" C.打壹槍",end="")
+                        pp=input()
+                        qing()
+                        if pp=="A":
+                            pp="防禦"
+                        elif pp=="B":
+                            pp="蓄力"
+                            xl=xl+1
+                            d=d+1
+                        elif pp=="C" and d>0:
+                            pp="打槍"
+                            d=d-1
+                            xl=0
+                        else:
+                           pp="防禦" 
+                        print("你（妳）:"+pp)
+                        df=randint(1,3)
+                        if df==3 and xl_d==0:
+                            while df==3:
+                                df=randint(1,3)
+                        if df==1:
+                            df="防禦"
+                        elif df==2:
+                            df="蓄力"
+                            xl_d=xl_d+1
+                            d_d=d_d+1
+                        elif df==3 and d_d>0:
+                            df="打槍"
+                            d_d=d_d-1
+                            xl_d=0
+                        else:
+                           df="防禦" 
+                        sleep(uniform(2.0,5.0))
+                        print("對方:"+str(df))
+                        if pp=="蓄力" and df=="打槍":
+                            m=0
+                            print("你（妳）死了！")
+                        if pp=="打槍" and df=="蓄力":
+                            m_d=0
+                            print("祝賀你（妳），打倒了對方！")
+                        if pp=="打槍" and df==pp:
+                            m=0
+                            m_d=0
+                            print("平局！")
+                        sleep(3)
+                        qing()
+                elif pp=="B":
+                    fi=0
+                    m=[1,1,1,1,1,1]
+                    d=[0,0,0,0,0,0]
+                    df=[0,0,0,0,0,0]
+                    xl=[0,0,0,0,0,0]
+                    cp=[None,None,None,None,None,None]
+                    cp2=[None,None,None,None,None,None]
+                    cp3=[None,None,None,None,None,None]
+                    idf=randint(1,5)
+                    print("你（妳）是"+str(idf)+"號玩家")
+                    print("你（妳）("+str(ID)+")  正在匹配(0) 正在匹配(0) 正在匹配(0) 正在匹配(0)")
+                    sleep(5)
+                    qing()
+                    print("你（妳）是"+str(idf)+"號玩家")
+                    print("你（妳）("+str(ID)+")  用戶"+str(randint(10000,99999999))+" 用戶"+str(randint(10000,99999999))+" 用戶"+str(randint(10000,99999999))+" 用戶"+str(randint(10000,99999999)))
+                    sleep(3)
+                    qing()
+                    while m.count(1)>1:
+                        qing()
+                        print("你（妳）是"+str(idf)+"號玩家")
+                        print("A.防禦 B.蓄力",end="")
+                        if d[idf]>0:
+                            print(" C.打壹槍",end="")
+                            if d[idf]>=2:
+                                print("D.打兩槍",end="")
+                            if d[idf]>=3:
+                                print("E.打三槍",end="")
+                        pp=input()
+                        qing()
+                        print("針對幾號位要填數字！")
+                        if pp=="A":
+                            pp="防禦"
+                        elif pp=="B":
+                            pp="蓄力"
+                            xl[idf]=xl[idf]+1
+                            d[idf]=d[idf]+1
+                        elif pp=="C" and d[idf]>0:
+                            pp="打槍"
+                            d[idf]=d[idf]-1
+                            xl[idf]=0
+                            cp[idf]=input("針對幾號位:")
+                            if cp[idf]==idf:
+                                print("不能針對自己！已自動切換爲防禦！")
+                                pp="防禦"
+                        elif pp=="D" and d[idf]>1:
+                            pp="兩槍"
+                            d[idf]=d[idf]-2
+                            xl[idf]=0
+                            cp[idf]=input("針對幾號位:")
+                            cp2[idf]=input("還需要針對幾號位(沒有可以不填):")
+                            if cp[idf]==idf or cp2[idf]==idf:
+                                print("不能針對自己！已自動切換爲防禦！")
+                                pp="防禦"
+                        elif pp=="E" and d[idf]>2:
+                            pp="三槍"
+                            d[idf]=d[idf]-3
+                            xl[idf]=0
+                            cp[idf]=input("針對幾號位:")
+                            cp2[idf]=input("還需要針對幾號位(沒有可以不填):")
+                            cp3[idf]=input("還需要針對幾號位(沒有可以不填):")
+                            if cp[idf]==idf or cp2[idf]==idf or cp3[idf]==idf:
+                                print("不能針對自己！已自動切換爲防禦！")
+                                pp="防禦"
+                        else:
+                           pp="防禦" 
+                        qing()
+                        print("你（妳）是"+str(idf)+"號玩家")
+                        print("你（妳）:",end="")
+                        if "槍" in pp:
+                            print("針對",cp[idf],cp2[idf],cp3[idf],"號玩家發起",end="")
+                        print(pp)
+                        for i in range(1,6):
+                            if i!=idf and m[i]!=0:
+                                df[i]=randint(1,5)
+                                if (df[i]==3 or df[i]==4 or df[i]==5) and d[i]==0:
+                                    while df[i]!=3 and df[i]!=4 and df[i]!=5:
+                                        df[i]=randint(1,5)
+                                if df[i]==1:
+                                    df[i]="防禦"
+                                elif df[i]==2:
+                                    df[i]="蓄力"
+                                    xl[i]=xl[i]+1
+                                    d[i]=d[i]+1
+                                elif df[i]==3 and d[i]>0:
+                                    df[i]="打槍"
+                                    d[i]=d[i]-1
+                                    xl[i]=0
+                                    cp[i]=randint(1,5)
+                                    if cp[i]==i:
+                                        df[i]="防禦"
+                                elif df[i]==4 and d[i]>1:
+                                    df[i]="兩槍"
+                                    d[i]=d[i]-2
+                                    xl[i]=0
+                                    cp[i]=randint(1,5)
+                                    cp2[i]=randint(0,5)
+                                    if cp[i]==i or cp2[i]==i:
+                                        df[i]="防禦"
+                                elif df[i]==5 and d[i]>2:
+                                    df[i]="三槍"
+                                    d[i]=d[i]-3
+                                    xl[i]=0
+                                    cp[i]=randint(1,5)
+                                    cp2[i]=randint(0,5)
+                                    cp3[i]=randint(0,5)
+                                    if cp[i]==i or cp3[i]==i or cp2[i]==i:
+                                        df[i]="防禦"
+                                else:
+                                   df[i]="防禦" 
+                        sleep(uniform(2.0,5.0))
+                        for i in range(1,6):
+                            if i!=idf and m[i]!=0:
+                                print(str(i)+"號玩家:",end="")
+                                if "槍" in df[i]:
+                                    print("針對",cp[i],cp2[i],cp3[i],"號玩家發起",end="")
+                                print(df[i])
+                                if df[i]=="打槍" and df[cp[i]]=="蓄力":
+                                    m[cp[i]]=0
+                                    print(str(cp[i])+"號玩家出局！")
+                                    if df[cp[i]]=="兩槍" or df[cp[i]]=="三槍":
+                                        m[i]=0
+                                        print(str(i)+"號玩家出局！")
+                                if df[i]=="兩槍" and (df[cp[i]]=="蓄力" or df[cp[i]]=="打槍"):
+                                    m[cp[i]]=0
+                                    print(str(cp[i])+"號玩家出局！")
+                                    if df[cp[i]]=="三槍" and (cp[cp[i]]==i or cp2[cp[i]]==i or cp3[cp[i]]==i):
+                                        m[i]=0
+                                        print(str(i)+"號玩家出局！")
+                                    if df[cp[i]]=="三槍" and (cp2[cp2[i]]==i or cp[cp2[i]]==i or cp3[cp2[i]]==i):
+                                        m[i]=0
+                                        print(str(i)+"號玩家出局！")
+                                    if df[cp[i]]=="三槍" and (cp[cp3[i]]==i or cp2[cp3[i]]==i or cp3[cp3[i]]==i):
+                                        m[i]=0
+                                        print(str(i)+"號玩家出局！")
+                                if df[i]=="兩槍" and (df[cp2[i]]=="蓄力" or df[cp2[i]]=="打槍"):
+                                    m[cp2[i]]=0
+                                    print(str(cp2[i])+"號玩家出局！")
+                                    if df[cp[i]]=="三槍" and (cp2[cp2[i]]==i or cp[cp2[i]]==i or cp3[cp2[i]]==i):
+                                        m[i]=0
+                                        print(str(i)+"號玩家出局！")
+                                    if df[cp[i]]=="三槍" and (cp[cp3[i]]==i or cp2[cp3[i]]==i or cp3[cp3[i]]==i):
+                                        m[i]=0
+                                        print(str(i)+"號玩家出局！")
+                                    if df[cp[i]]=="三槍" and (cp[cp[i]]==i or cp2[cp[i]]==i or cp3[cp[i]]==i):
+                                        m[i]=0
+                                        print(str(i)+"號玩家出局！")
+                                if df[i]=="三槍" and (df[cp2[i]]=="蓄力" or df[cp2[i]]=="打槍" or df[cp2[i]]=="兩槍"):
+                                    m[cp2[i]]=0
+                                    print(str(cp2[i])+"號玩家出局！")
+                                if df[i]=="三槍" and (df[cp[i]]=="蓄力" or df[cp[i]]=="打槍" or df[cp[i]]=="兩槍"):
+                                    m[cp[i]]=0
+                                    print(str(cp[i])+"號玩家出局！") 
+                                if df[i]=="三槍" and (df[cp3[i]]=="蓄力" or df[cp3[i]]=="打槍" or df[cp3[i]]=="兩槍"):
+                                    m[cp3[i]]=0
+                                    print(str(cp3[i])+"號玩家出局！")
+                        for i in range(1,6):
+                            if cp[i]==idf or cp2[i]==idf or cp3[i]==idf:
+                                if df[i]=="三槍" and (pp=="蓄力" or pp=="打槍" or pp=="兩槍") :
+                                    print("你（妳）被打死了")
+                                    fi=1
+                                    break
+                                if df[i]=="兩槍" and (pp=="蓄力" or pp=="打槍"):
+                                    print("你（妳）被打死了")
+                                    fi=1
+                                    break
+                                if df[i]=="打槍" and pp=="蓄力":
+                                    print("你（妳）被打死了")
+                                    fi=1
+                                    break
+                        sleep(5)
+                        if fi==1:
+                            break
+                    if m[idf]==1:
+                        print("你（妳）贏了！")
+                elif pp=="E":
+                    b("單人賽玩法")
+                    b("防禦:遊戲中敲A代表防禦，此功能可以免受壹次打槍\n蓄力:遊戲中敲B代表蓄力，此功能可以制造壹枚槍的子彈\n打槍:遊戲中敲C代表打槍，每次只能打壹枚子彈，且需要壹次蓄力來制造壹枚子彈，此功能可以攻擊對方。")
+                    b("如果你（妳）出槍，對方出蓄力，你（妳）贏了。相反則是你（妳）輸了。如果兩人都出槍，那麽就是平局。")
+                    b("大亂鬥玩法")
+                    b("大亂鬥可以連續開2、3槍。兩槍可以攻擊針對你（妳）想針對的玩家，兩槍可以攻破蓄力和壹槍。三槍則可以攻破所有技能")
+                elif pp=="X":
+                    break
+                else:
+                    print("開發中，敬請期待。")
+                input("Enter鍵繼續")
+                sleep(3)
+                qing()
+                continue
+        elif prog=="35768":
+            while 1:
+                print("\033[0m\033[7m            Pan啓動管理器            ")
+                print("\033[0m選擇要更改的選項")
+                print("\nA.切換系統")
+                print("B.Settings")
+                print("退出選項在Settings裏面")
+                prog=input()
+                qing()
+                if prog=="A":
+                    qing()
+                    sleep(2)
+                    print("\033[7m            Pan啓動管理器            ")
+                    print("\033[0m選擇要更改的選項")
+                    print("\nA.Pan TSE 2")
+                    print("B.Pan PE")
+                    prog=input()
+                    if prog=="B":
+                        obj=1
+                        break
+                    else:
+                        qing()
+                        break
+                elif prog=="B":
+                    print("\033[7m        Pan啓動管理器            ")
+                    print("\033[0m選擇要更改的選項")
+                    print("\nA.重置系統")
+                    print("B.系統屬性\nC.聲音\nD.顯示\nE.時間\nF.個性化主題\nG.激活Pan\nX.退出")
+                    if llqjh==0:
+                        b("\033[91m個性化設置沒有開通，因爲你（妳）尚未激活Pan\033[0m")
+                    prog=input()
+                    qing()
+                    print("\033[7m        Pan啓動管理器            ")
+                    print("\033[0m",end="")
+                    if prog=="A":
+                        print("正在恢複......")
+                        name=None
+                        password=None
+                        key=None
+                        ds_2=0
+                        ds_3=0
+                        ds_4=0
+                        ds_5=0
+                        sleep(2)
+                        print("恢複成功！開始重啓...")
+                        sleep(3)
+                        qing()
+                        for i in range(3):
+                            print("_")
+                            sleep(0.2)
+                            qing()
+                            sleep(0.2)
+                        sleep(1)
+                        for i in range(randint(2,6)):
+                            for j in range(10):
+                                print("        \033[101m  \033[0m\033[102m  \033[0m")
+                                print("        \033[104m  \033[0m\033[103m  \033[0m")
+                                print("\n\n"+"  "*j+"......")
+                                sleep(0.1)
+                                qing()
+                            qing()
+                        sleep(2)
+                        qing()
+                        name=input("請輸入您的姓名:")
+                        while name=="Administrator" or name=="guest" or name=="SYSTEM":
+                            qing()
+                            name=input("用戶已存在，請重新輸入:")
+                        password=input("請輸入您的密碼:")
+                        qing()
+                        password_yz=None
+                        password_yz=input("請再次輸入您的密碼:")
+                        while password_yz!=password:
+                            password_yz=input("\033[91m密碼錯誤，請輸入您的密碼:")
+                        print("\033[94mo 歡迎"+name)
+                        break
+                    elif prog=="B":
+                        b("\033[90mPan版本")
+                        b("\033[0mPan TSE 2.1")
+                        b("?2020 HOTM workshop。保留所有權利。")
+                        b("\n\n\033[90m系統")
+                        b("\033[0m處理器:HOTM,X86720P-Virtual Emulator")
+                        b("已安裝的RAM:536MB(512.1MB可用)")
+                        b("筆和觸控:沒有可用于此顯示器的筆或觸控輸入")
+                        b("\n\n\033[90m計算機名，域和工作組設置")
+                        b("\033[0m計算機名:START-T8CF78L")
+                        b("\033[0m描述:Pan TSE2.1 in Xueersi Coding.")
+                        b("工作組:HOTM")
+                    elif prog=="G":
+                        if llqjh==0:
+                            b("輸入你（妳）的Pan密鑰，它在Pan安裝光盤裏，或在開發者的留言中")
+                            b("密鑰示例:111-1111111")
+                            key=input()
+                            if len(key)!=11:
+                                key="Error"
+                            else:
+                                for i in range(0,len(key)):
+                                    if key[i]!="-" and i==3:
+                                        key="Error"
+                                        break
+                                    elif key[i]!="-" and not(int(key[i])>=0 and int(key[i])<=9):
+                                        key="Error"
+                                        break
+                            if key=="Error":
+                                while key=="Error":
+                                    qing()
+                                    b("輸入你（妳）的Pan密鑰，它在Pan安裝光盤裏，或在開發者的留言中")
+                                    b("密鑰示例:111-1111111")
+                                    key=input()
+                                    for i in range(0,len(key)):
+                                        if key[i]!="-" and i==3:
+                                            key="Error"
+                                            break
+                                        elif not(int(key[i])>=0 and int(key[i])<=9):
+                                            key="Error"
+                                            break
+                            qing()
+                            print("密鑰提交成功！")
+                            print("管理員(180*****260)正在驗證...")
+                            if randint(0,10)==8:
+                                print("管理員驗證失敗！正在通過Pan官方團隊(189*****119)驗證...")
+                            sleep(5)
+                            llqjh=1
+                            print("密鑰有效，驗證通過！")
+                        b("Pan已激活(密鑰"+str(key[0])+str(key[1])+"*-******"+str(key[10])+")，回車鍵退出。")
+                        input()
+                    if llqjh==1:
+                        if prog=="C":
+                            b("默認方案:Pan默認(無聲)")
+                            b("A.默認響聲")
+                            if classic==0:
+                                b("B.Steve")
+                            prog=input()
+                            if prog=="A":
+                                play_mp3("lulu.mp3")
+                            elif prog=="B":
+                                speak("系統默認生音範例，當前講述人:史蒂夫。講述人系統測試:你（妳）好、謝謝、請走好。測試完畢！")
+                        elif prog=="D":
+                            b("當前分辨率:874×560")
+                            b("\033[90m選擇分辨率(不可用):\nA.1366×768\nB.1024×768\nC.874×560(推薦)\nD.800×600\nE.640×480")
+                        elif prog=="E":
+                            b(ctime())
+                            b("UTC+8:00 China(default)")
+                            b("\033[90m選擇時區(不可用):\nA.UTC-4:00 US\nB.UTC UK\nC.UTC+8:00 China\nD.UTC+5:00 Pakistan\nE.UTC+1:00 Serbia")
+                        elif prog=="F":
+                            if classic==1:
+                                b("當前主題:Pan經典")
+                            else:
+                                b("當前主題:Pan TSE Basic")
+                            b("更改主題:A.Pan經典 B.Pan TSE Basic C.Pan TSE 繁體中文版 D.主題屬性")
+                            prog=input()
+                            qing()
+                            print("\033[0m\033[7m        Pan啓動管理器            \033[0m")
+                            if prog=="A":
+                                b("Pan經典")
+                                b("背景:PanNT4.0")
+                                b("顔色:黃色")
+                                b("聲音:無聲")
+                                b("鼠標光標:不支持")
+                                prog=input("是否更改爲此主題(Y|N)")
+                                if prog=="Y":
+                                    qing()
+                                    print("\033[0m\033[7m        Pan啓動管理器            \033[0m")
+                                    print("\033[90m請稍等...")
+                                    sleep(5)
+                                    classic=1
+                                    setmode("boy")
+                                    print("\033[93m更改成功!")
+                                else:
+                                    qing()
+                                    print("\033[0m\033[7m        Pan啓動管理器            \033[0m")
+                                    b("好的，您取消了更改")
+                            elif prog=="B":
+                                b("Pan TSE Basic")
+                                b("背景:純色")
+                                b("顔色:藍色")
+                                b("聲音:講述人Steve的語音包(默認關閉)")
+                                b("鼠標光標:爲支持5點觸控及以上的觸摸顯示屏提供支持")
+                                prog=input("是否更改爲此主題(Y|N)")
+                                if prog=="Y":
+                                    qing()
+                                    print("\033[0m\033[7m        Pan啓動管理器            \033[0m")
+                                    print("\033[90m請稍等...")
+                                    sleep(5)
+                                    classic=0
+                                    print("\033[93m更改成功!")
+                                else:
+                                    qing()
+                                    print("\033[0m\033[7m        Pan啓動管理器            \033[0m")
+                                    b("好的，您取消了更改")
+                            elif prog=="C":
+                                b("Pan TSE 繁體中文版")
+                                b("背景:Harmony")
+                                b("顔色:黑色")
+                                b("聲音:無")
+                                b("鼠標光標:不支持")
+                                b("\033[90m由于你（妳）沒有用戶SYSTEM的許可，你（妳）不能使用這個主題")
+                            elif prog=="D":
+                                if classic==1:
+                                    b("Pan經典")
+                                    b("背景:PanNT4.0")
+                                    b("顔色:黃色")
+                                    b("聲音:無聲")
+                                    b("鼠標光標:不支持")
+                                else:
+                                    b("Pan TSE Basic")
+                                    b("背景:純色")
+                                    b("顔色:藍色")
+                                    b("聲音:講述人Steve的語音包(默認關閉)")
+                                    b("鼠標光標:爲支持5點觸控及以上的觸摸顯示屏提供支持")
+                                input("Enter鍵返回")
+                            else:
+                                b("該主題不存在，請聯機搜索更多主題。")
+                    elif prog=="X":
+                        break
+                    else:
+                        qing()
+                        continue
+                    sleep(3)
+                    qing()
+                    continue
+            if obj==1:
+                break
+        else:
+            software_len = len(prog)
+            NUMBER = ['壹','二','三','四','五','六','七','八','九','十','十壹','十二','十三','十四','十五','十六','十七','十八','十九','二十','二十壹','二十二','二十三','二十四','二十五','二十六','二十七','二十八','二十九','三十']
+            try:
+                software2 = int(prog)
+                YUAN = "您輸入了不合法的編號，請您輸入正確編號~"
+            except:
+                if prog == "" or prog == " " or prog == " "*software_len:
+                    YUAN = "您什麽也沒輸入喲~"
+                elif prog in NUMBER:
+                    YUAN = "請輸入阿拉伯數字,不可輸入漢字~"
+                elif prog[0:3] == "www" or prog[0:4] == "http":
+                    YUAN = "不支持輸入網址~"
+                else:
+                    YUAN = "您輸入了程序名,請輸入編號~"
+            qing()
+            print()
+            print()
+            print("\033[33m系統未查找到軟件 - {} -".format(prog))
+            print("\033[36m原因:{}".format(YUAN))
+            sleep(0.5)
+            input("\033[32mEnter鍵返回開始菜單。")
+            qing()
+            continue
+        print("\n10秒後返回開始菜單\033[000m")
+        sleep(10)
+        qing()
+        continue
+    if obj==1:
+        kfz()
+
+except Exception as e:
+    qing()
+    error(str(e))
