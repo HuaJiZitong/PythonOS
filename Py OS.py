@@ -1,7 +1,9 @@
-import time
+#加载模块
 import random
+import time
 
-
+#自定义函数
+def 
 #开始进入Python的世界
 global passwordpadd, password, passwordadd, power_on_time, power_on
 print(('启动时间：' + time.ctime()))
