@@ -1,17 +1,15 @@
-import print
+import module
 def power(inputpasswords):
-    fo = open("password.txt","r+") 
-    password = fo.read(4)
-    print(password)
-    strs = str(password)
-    awa = len(strs)
-    print(awa)
+    with open('password.json', 'r') as f:
+    password = json.load(f)
+    awa = len(str(password))
     if awa == 4:
         if inputpasswords == password:
-            print.out("本次启动时长1秒")
+            module.out("本次启动时长1秒")
             return
     else:
-        print.out("第一次启动，设置新用户")
-        fo.write(inputpasswords)
-        print.out("密码设置成功")
+        module.out("第一次启动，设置新用户")
+        with open('password.json', 'w') as f:
+            json.dump(password, f)
+        module.out("密码设置成功")
         return
